@@ -34,16 +34,17 @@ namespace QLDSV_TC
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHocPhi));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
             this.btnGhi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.save = new DevExpress.XtraBars.BarButtonItem();
@@ -82,11 +83,11 @@ namespace QLDSV_TC
             this.menuHP = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnHPThemMoi = new System.Windows.Forms.ToolStripMenuItem();
             this.mnHPGhi = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnHPPhucHoi = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnHPXoa = new System.Windows.Forms.ToolStripMenuItem();
             this.bdsDSHP = new System.Windows.Forms.BindingSource(this.components);
-            this.cT_DONGHOCPHIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bsd_CTHP = new System.Windows.Forms.BindingSource(this.components);
             this.cT_DONGHOCPHITableAdapter = new QLDSV_TC.DS_HPTableAdapters.CT_DONGHOCPHITableAdapter();
-            this.hOCPHIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bds_HP = new System.Windows.Forms.BindingSource(this.components);
             this.hOCPHITableAdapter = new QLDSV_TC.DS_HPTableAdapters.HOCPHITableAdapter();
             this.bdsCTHP = new System.Windows.Forms.BindingSource(this.components);
             this.sP_LAY_CT_HPTableAdapter = new QLDSV_TC.DS_HPTableAdapters.SP_LAY_CT_HPTableAdapter();
@@ -98,7 +99,7 @@ namespace QLDSV_TC
             this.menuCTHP = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnCTHPThem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnCTHPGhi = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnCTHPPhucHoi = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnCTHPXoa = new System.Windows.Forms.ToolStripMenuItem();
             this.thêmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hủyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gET_THONGTIN_HOCPHITableAdapter = new QLDSV_TC.DS_HPTableAdapters.GET_THONGTIN_HOCPHITableAdapter();
@@ -118,8 +119,8 @@ namespace QLDSV_TC
             ((System.ComponentModel.ISupportInitialize)(this.dgvHP)).BeginInit();
             this.menuHP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDSHP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cT_DONGHOCPHIBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hOCPHIBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsd_CTHP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bds_HP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTHP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -150,9 +151,10 @@ namespace QLDSV_TC
             this.btnHuy,
             this.barButtonItem6,
             this.btnThoat,
-            this.save});
+            this.save,
+            this.btnXoa});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 14;
+            this.barManager1.MaxItemId = 15;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar2
@@ -164,6 +166,7 @@ namespace QLDSV_TC
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnGhi),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnXoa),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnThoat)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
@@ -185,10 +188,17 @@ namespace QLDSV_TC
             this.btnGhi.Hint = "Ghi";
             this.btnGhi.Id = 7;
             this.btnGhi.Name = "btnGhi";
-            toolTipTitleItem1.Text = "Ghi";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            this.btnGhi.SuperTip = superToolTip1;
+            toolTipTitleItem2.Text = "Ghi";
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            this.btnGhi.SuperTip = superToolTip2;
             this.btnGhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGhi_ItemClick);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Caption = "Xóa";
+            this.btnXoa.Id = 14;
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoa_ItemClick);
             // 
             // btnThoat
             // 
@@ -431,19 +441,19 @@ namespace QLDSV_TC
             this.dgvHP.AllowUserToAddRows = false;
             this.dgvHP.AllowUserToResizeColumns = false;
             this.dgvHP.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvHP.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvHP.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvHP.AutoGenerateColumns = false;
             this.dgvHP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHP.BackgroundColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvHP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nIENKHOADataGridViewTextBoxColumn,
@@ -453,20 +463,20 @@ namespace QLDSV_TC
             this.TIENCONNO});
             this.dgvHP.ContextMenuStrip = this.menuHP;
             this.dgvHP.DataSource = this.bdsDSHP;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHP.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHP.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvHP.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvHP.Location = new System.Drawing.Point(2, 2);
             this.dgvHP.Name = "dgvHP";
             this.dgvHP.RowHeadersWidth = 62;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvHP.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            this.dgvHP.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvHP.RowTemplate.Height = 28;
             this.dgvHP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHP.Size = new System.Drawing.Size(1940, 225);
@@ -516,7 +526,7 @@ namespace QLDSV_TC
             this.menuHP.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnHPThemMoi,
             this.mnHPGhi,
-            this.mnHPPhucHoi});
+            this.mnHPXoa});
             this.menuHP.Name = "menuHP";
             this.menuHP.Size = new System.Drawing.Size(165, 100);
             this.menuHP.Opening += new System.ComponentModel.CancelEventHandler(this.menuHP_Opening);
@@ -524,41 +534,42 @@ namespace QLDSV_TC
             // mnHPThemMoi
             // 
             this.mnHPThemMoi.Name = "mnHPThemMoi";
-            this.mnHPThemMoi.Size = new System.Drawing.Size(164, 32);
+            this.mnHPThemMoi.Size = new System.Drawing.Size(240, 32);
             this.mnHPThemMoi.Text = "Thêm Mới";
             this.mnHPThemMoi.Click += new System.EventHandler(this.mnHPThemMoi_Click);
             // 
             // mnHPGhi
             // 
             this.mnHPGhi.Name = "mnHPGhi";
-            this.mnHPGhi.Size = new System.Drawing.Size(164, 32);
+            this.mnHPGhi.Size = new System.Drawing.Size(240, 32);
             this.mnHPGhi.Text = "Ghi";
             this.mnHPGhi.Click += new System.EventHandler(this.mnHPGhi_Click);
             // 
-            // mnHPPhucHoi
+            // mnHPXoa
             // 
-            this.mnHPPhucHoi.Name = "mnHPPhucHoi";
-            this.mnHPPhucHoi.Size = new System.Drawing.Size(164, 32);
-            this.mnHPPhucHoi.Text = "Phục Hồi";
+            this.mnHPXoa.Name = "mnHPXoa";
+            this.mnHPXoa.Size = new System.Drawing.Size(240, 32);
+            this.mnHPXoa.Text = "Xóa";
+            this.mnHPXoa.Click += new System.EventHandler(this.mnHPXoa_Click);
             // 
             // bdsDSHP
             // 
             this.bdsDSHP.DataMember = "GET_THONGTIN_HOCPHI";
             this.bdsDSHP.DataSource = this.DS_HP;
             // 
-            // cT_DONGHOCPHIBindingSource
+            // bsd_CTHP
             // 
-            this.cT_DONGHOCPHIBindingSource.DataMember = "CT_DONGHOCPHI";
-            this.cT_DONGHOCPHIBindingSource.DataSource = this.DS_HP;
+            this.bsd_CTHP.DataMember = "CT_DONGHOCPHI";
+            this.bsd_CTHP.DataSource = this.DS_HP;
             // 
             // cT_DONGHOCPHITableAdapter
             // 
             this.cT_DONGHOCPHITableAdapter.ClearBeforeFill = true;
             // 
-            // hOCPHIBindingSource
+            // bds_HP
             // 
-            this.hOCPHIBindingSource.DataMember = "HOCPHI";
-            this.hOCPHIBindingSource.DataSource = this.DS_HP;
+            this.bds_HP.DataMember = "HOCPHI";
+            this.bds_HP.DataSource = this.DS_HP;
             // 
             // hOCPHITableAdapter
             // 
@@ -608,6 +619,7 @@ namespace QLDSV_TC
             this.dgv_CT_HP.RowTemplate.Height = 28;
             this.dgv_CT_HP.Size = new System.Drawing.Size(1944, 274);
             this.dgv_CT_HP.TabIndex = 38;
+            this.dgv_CT_HP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CT_HP_CellClick);
             // 
             // nGAYDONGDataGridViewTextBoxColumn
             // 
@@ -629,9 +641,9 @@ namespace QLDSV_TC
             this.menuCTHP.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnCTHPThem,
             this.mnCTHPGhi,
-            this.mnCTHPPhucHoi});
+            this.mnCTHPXoa});
             this.menuCTHP.Name = "menuCTHP";
-            this.menuCTHP.Size = new System.Drawing.Size(165, 100);
+            this.menuCTHP.Size = new System.Drawing.Size(241, 133);
             // 
             // mnCTHPThem
             // 
@@ -647,11 +659,12 @@ namespace QLDSV_TC
             this.mnCTHPGhi.Text = "Ghi";
             this.mnCTHPGhi.Click += new System.EventHandler(this.mnCTHPGhi_Click);
             // 
-            // mnCTHPPhucHoi
+            // mnCTHPXoa
             // 
-            this.mnCTHPPhucHoi.Name = "mnCTHPPhucHoi";
-            this.mnCTHPPhucHoi.Size = new System.Drawing.Size(164, 32);
-            this.mnCTHPPhucHoi.Text = "Phục Hồi";
+            this.mnCTHPXoa.Name = "mnCTHPXoa";
+            this.mnCTHPXoa.Size = new System.Drawing.Size(240, 32);
+            this.mnCTHPXoa.Text = "Xóa";
+            this.mnCTHPXoa.Click += new System.EventHandler(this.mnCTHPXoa_Click);
             // 
             // thêmToolStripMenuItem
             // 
@@ -705,8 +718,8 @@ namespace QLDSV_TC
             ((System.ComponentModel.ISupportInitialize)(this.dgvHP)).EndInit();
             this.menuHP.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bdsDSHP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cT_DONGHOCPHIBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hOCPHIBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsd_CTHP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bds_HP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTHP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -748,9 +761,9 @@ namespace QLDSV_TC
         private DS_HPTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.SimpleButton btnTimKiem;
-        private System.Windows.Forms.BindingSource cT_DONGHOCPHIBindingSource;
+        private System.Windows.Forms.BindingSource bsd_CTHP;
         private DS_HPTableAdapters.CT_DONGHOCPHITableAdapter cT_DONGHOCPHITableAdapter;
-        private System.Windows.Forms.BindingSource hOCPHIBindingSource;
+        private System.Windows.Forms.BindingSource bds_HP;
         private DS_HPTableAdapters.HOCPHITableAdapter hOCPHITableAdapter;
         private System.Windows.Forms.BindingSource bdsCTHP;
         private DS_HPTableAdapters.SP_LAY_CT_HPTableAdapter sP_LAY_CT_HPTableAdapter;
@@ -767,11 +780,11 @@ namespace QLDSV_TC
         private System.Windows.Forms.ContextMenuStrip menuCTHP;
         private System.Windows.Forms.ToolStripMenuItem mnCTHPThem;
         private System.Windows.Forms.ToolStripMenuItem mnCTHPGhi;
-        private System.Windows.Forms.ToolStripMenuItem mnCTHPPhucHoi;
+        private System.Windows.Forms.ToolStripMenuItem mnCTHPXoa;
         private System.Windows.Forms.ContextMenuStrip menuHP;
         private System.Windows.Forms.ToolStripMenuItem mnHPThemMoi;
         private System.Windows.Forms.ToolStripMenuItem mnHPGhi;
-        private System.Windows.Forms.ToolStripMenuItem mnHPPhucHoi;
+        private System.Windows.Forms.ToolStripMenuItem mnHPXoa;
         private BindingSource bdsSinhVien;
         private DS_HPTableAdapters.SINHVIENTableAdapter sINHVIENTableAdapter;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
@@ -785,5 +798,6 @@ namespace QLDSV_TC
         private DataGridViewTextBoxColumn TIENCONNO;
         private DataGridViewTextBoxColumn nGAYDONGDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn sOTIENDONGDataGridViewTextBoxColumn1;
+        private DevExpress.XtraBars.BarButtonItem btnXoa;
     }
 }

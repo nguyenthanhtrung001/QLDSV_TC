@@ -16,6 +16,7 @@ using System.Windows.Forms;
 namespace QLDSV_TC
 {
 
+    
 
 
     public partial class frmHocPhi : DevExpress.XtraEditors.XtraForm
@@ -26,6 +27,8 @@ namespace QLDSV_TC
         String nienKhoa = "";
         String hocky = "";
         String tienNo = "";
+        string ngay = "";
+
         bool check = false;
 
         public frmHocPhi()
@@ -71,7 +74,7 @@ namespace QLDSV_TC
 
             btnGhi.Enabled = btnThem.Enabled = btnPhucHoi.Enabled = btnHuy.Enabled = mnCTHPThem.Enabled = mnHPThemMoi.Enabled = true;
 
-            mnHPPhucHoi.Enabled = mnCTHPPhucHoi.Enabled = mnCTHPGhi.Enabled = mnHPGhi.Enabled = true;
+            mnHPXoa.Enabled = mnCTHPXoa.Enabled = mnCTHPGhi.Enabled = mnHPGhi.Enabled = true;
         }
 
         private void disableEdit()
@@ -80,7 +83,7 @@ namespace QLDSV_TC
             dgv_CT_HP.ReadOnly = true;
             btnGhi.Enabled = btnThem.Enabled = btnPhucHoi.Enabled = btnHuy.Enabled = mnCTHPThem.Enabled = mnHPThemMoi.Enabled = false;
 
-            mnHPPhucHoi.Enabled = mnCTHPPhucHoi.Enabled = mnCTHPGhi.Enabled = mnHPGhi.Enabled = false;
+            mnHPXoa.Enabled = mnCTHPXoa.Enabled = mnCTHPGhi.Enabled = mnHPGhi.Enabled = false;
         }
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
@@ -131,6 +134,8 @@ namespace QLDSV_TC
                 dt_DS_HP = Program.ExecSqlDataTable(strlenh1);
 
                 bdsDSHP.DataSource = dt_DS_HP;
+                //thử
+                bds_HP = bdsDSHP;
 
                 CalculateTienConNo();
                 ActivateCellFormatting();
@@ -165,6 +170,7 @@ namespace QLDSV_TC
             dgvHP.CellMouseClick += dgvHP_CellMouseClick;
             btnGhi.Enabled = mnCTHPGhi.Enabled = mnHPGhi.Enabled = false;
             btnThem.Enabled = mnCTHPThem.Enabled = mnHPThemMoi.Enabled = false;
+            btnXoa.Enabled = mnCTHPXoa.Enabled = mnHPXoa.Enabled = false;
 
             DS_HP.EnforceConstraints = false;
 
@@ -289,7 +295,7 @@ namespace QLDSV_TC
         {
             if (check == false)
             {
-                btnGhi.Enabled = mnCTHPGhi.Enabled = mnHPGhi.Enabled = true;
+                btnGhi.Enabled = mnCTHPGhi.Enabled = mnHPGhi.Enabled =btnXoa.Enabled= true;
             }
 
             try
@@ -320,6 +326,8 @@ namespace QLDSV_TC
                 String strlenh1 = "EXEC SP_LAY_CT_HP '" + masv + "'" + ",'" + nienKhoa + "','" + hocky + "'";
 
                 dt_CT_HP = Program.ExecSqlDataTable(strlenh1);
+                // thử
+                bdsCTHP.DataSource = dt_CT_HP;
 
                 dgv_CT_HP.DataSource = dt_CT_HP;
                 ShowDataGridView();
@@ -543,36 +551,7 @@ namespace QLDSV_TC
                 }
             }
         }
-        /*   private void dgv_CT_HP_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
-           {
-               DataGridViewRow row = dgv_CT_HP.Rows[e.RowIndex];
-
-               // Kiểm tra giá trị của cột nGAYDONGDataGridViewTextBoxColumn
-               if (row.Cells["nGAYDONGDataGridViewTextBoxColumn"].Value == null|| row.Cells["nGAYDONGDataGridViewTextBoxColumn"].Value.ToString()=="")
-               {
-                   row.Cells["nGAYDONGDataGridViewTextBoxColumn"].Value = DateTime.Now.ToString("dd/MM/yyyy");
-               }
-               else
-               {
-                   DateTime ngaydong;
-                   if (!DateTime.TryParse(row.Cells["nGAYDONGDataGridViewTextBoxColumn"].Value.ToString(), out ngaydong))
-                   {
-                       e.Cancel = true;
-                       MessageBox.Show("Định dạng ngày không hợp lệ!");
-                   }
-               }
-
-               // Kiểm tra giá trị của cột sOTIENDONGDataGridViewTextBoxColumn1
-               int sotien;
-
-               if (!int.TryParse(row.Cells["sOTIENDONGDataGridViewTextBoxColumn1"].Value.ToString(), out sotien) || sotien <= 0 || sotien > Convert.ToInt32(dgvHP.CurrentRow.Cells["TIENCONNO"].Value))
-               {
-                   e.Cancel = true;
-                   MessageBox.Show("Số tiền đóng phải là số nguyên dương và nhỏ hơn hoặc bằng số tiền học phí!");
-               }
-
-           }
-   */
+       
         public void RemoveLastRow(DataTable dataTable)
         {
             if (dataTable.Rows.Count > 0)
@@ -690,6 +669,155 @@ namespace QLDSV_TC
             Close();
         }
 
-       
+        private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            /*if (Program.KetNoi() == 0) return;
+            string strlenh = " DECLARE @return_value int " +
+                "EXEC @return_value=SP_CHECK_ID_HOCPHI_F_CTHP '" + txtMASV.Text.ToString() + "','" + nienKhoa + "','" + hocky + "'" +
+                " SELECT  'Return Value' = @return_value ";
+          
+            SqlDataReader myReader = Program.ExecSqlDataReader(strlenh);
+            if (myReader == null) return;
+            String status = "";
+            myReader.Read();
+            try
+            {
+                status = myReader.GetValue(0).ToString();
+                myReader.Close();
+               
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.StackTrace);
+
+            }*/
+            if (dgv_CT_HP.RowCount>0)
+            {
+                MessageBox.Show("Học phí đã được đóng không thể  xóa !!!");
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Xóa Học Phí", "Xác Nhận", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                       
+                        string cmdText = "EXEC DeleteHOCPHI  '" + txtMASV.Text.ToString() + "','" + nienKhoa + "','" + hocky + "'";
+                        using (SqlDataReader reader = Program.ExecSqlDataReader(cmdText))
+                        {
+                            if (reader != null)
+                            {
+                                // SP đã thực thi thành công, xử lý kết quả nếu cần
+                                MessageBox.Show("Xóa Thành Công!!!");
+                                bds_HP.RemoveCurrent();
+
+                            }
+                            else
+                            {
+                                // SP thất bại, xử lý lỗi nếu cần
+                                MessageBox.Show("SP thất bại");
+                            }
+                        }
+
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+                else if (result == DialogResult.No)
+                {
+                    // Xử lý khi người dùng chọn No
+                }
+
+            }
+        }
+
+        private void mnHPXoa_Click(object sender, EventArgs e)
+        {
+            DevExpress.XtraBars.BarItemLink link = null; // Tạo đối tượng BarItemLink
+            btnXoa_ItemClick(sender, new DevExpress.XtraBars.ItemClickEventArgs(null, link)); // Truyền đối tượng BarItemLink vào hàm ItemClickEventArgs
+
+        }
+
+        private void mnCTHPXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Xóa Học Phí", "Xác Nhận", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                DateTime ngayDong;
+                if (DateTime.TryParse(ngay, out ngayDong))
+                {
+                    if (Program.conn.State == ConnectionState.Closed)
+                    {
+                        Program.conn.Open();
+                    }
+                    // Gọi stored procedure DeleteCT_DONGHOCPHI và truyền các tham số
+                    using (SqlCommand command = new SqlCommand("DeleteCT_DONGHOCPHI", Program.conn))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@MASV", txtMASV.Text.ToString());
+                        command.Parameters.AddWithValue("@NIENKHOA", nienKhoa);
+                        command.Parameters.AddWithValue("@HOCKY", hocky);
+                        command.Parameters.AddWithValue("@NGAYDONG", ngayDong);
+
+                        // Thực thi stored procedure
+                        try
+                        {
+                            command.ExecuteNonQuery();
+                            MessageBox.Show("Xóa Thành Công!!!");
+                            bdsCTHP.RemoveCurrent();
+                            btnTimKiem_Click(sender, e);
+                            ShowDataGridView();
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show("Xóa Thất bại!!!");
+                            
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Lỗi chuyển đổi kiểu dữ liệu ngày");
+                }
+            }
+            else if (result == DialogResult.No)
+            {
+                // Xử lý khi người dùng chọn No
+            }
+
+
+        }
+
+        private void dgv_CT_HP_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+
+            try
+            {
+                // Lấy dòng được chọn
+                DataGridViewRow row = dgv_CT_HP.Rows[e.RowIndex];
+
+
+                
+                ngay = row.Cells[0].Value.ToString();
+                
+               
+
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("dgv_CTHP_CellClick" + ex.StackTrace);
+            }
+
+
+
+
+
+        }
+
     }
 }
