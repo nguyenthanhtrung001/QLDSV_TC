@@ -95,7 +95,7 @@ namespace QLDSV_TC
             // TODO: This line of code loads data into the 'dS1.LOPTINCHI' table. You can move, or remove it, as needed.
             //           
             if (Program.KetNoi() == 0) return;
-            if (cbxKhoa.SelectedValue.ToString() == "LAPTOP-BB4P1S1G\\MSSQLSERVER01")
+            if (cbxKhoa.Text.ToString() == "KHOA CÔNG NGHỆ THÔNG TIN")
             {
                 khoa = "CNTT";
             }
@@ -149,7 +149,7 @@ namespace QLDSV_TC
             {
                 String strlenh = "EXEC SP_GETDSNHAPDIEM '" + nienKhoa + "', '" + hocKy + "', '" + monHoc + "' ,'" + nhom + "'";
 
-
+                MessageBox.Show(strlenh);
 
                 dt_DS_DangKy = Program.ExecSqlDataTable(strlenh);
                 // bdsNhapDiem.DataSource = dt_DS_DangKy;
@@ -234,7 +234,7 @@ namespace QLDSV_TC
                 return;
             }
 
-            if (cbxKhoa.SelectedValue.ToString() == "LAPTOP-BB4P1S1G\\MSSQLSERVER01")
+            if (cbxKhoa.Text.ToString() == "KHOA CÔNG NGHỆ THÔNG TIN")
             {
                 khoa = "CNTT";
             }
@@ -478,12 +478,13 @@ namespace QLDSV_TC
 
         private void cbxMonHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            monHoc = cbxMonHoc.SelectedValue.ToString();
+           
 
             string strlenh = "SELECT DISTINCT NHOM FROM LOPTINCHI WHERE NIENKHOA='" + nienKhoa + "' AND MAKHOA='" + khoa + "'" + " AND MAMH='" + monHoc + "'" + " AND HOCKY='" + hocKy + "'";
 
 
             layDS_Nhom(strlenh);
+            monHoc = cbxMonHoc.SelectedValue.ToString();
         }
 
         private void cbxNhom_SelectedIndexChanged(object sender, EventArgs e)

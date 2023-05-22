@@ -111,6 +111,22 @@ namespace QLDSV_TC
 
             }
         }
+
+        private void btnPhieuDiemSV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExits(typeof(Frpt_PhieuDiemSV));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Frpt_PhieuDiemSV f = new Frpt_PhieuDiemSV();
+                f.MdiParent = this;
+                f.Show();
+
+
+
+            }
+
+        }
     }
 }
 

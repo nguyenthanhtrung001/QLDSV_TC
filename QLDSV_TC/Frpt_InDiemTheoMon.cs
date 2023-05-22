@@ -127,7 +127,7 @@ namespace QLDSV_TC
                 MessageBox.Show("Kết nối csdl thất bại!", "", MessageBoxButtons.OK);
                 return;
             }
-            if (cbxKhoa.SelectedValue.ToString() == "LAPTOP-BB4P1S1G\\MSSQLSERVER01")
+            if (cbxKhoa.Text.ToString() == "KHOA CÔNG NGHỆ THÔNG TIN")
             {
                 khoa = "CNTT";
             }

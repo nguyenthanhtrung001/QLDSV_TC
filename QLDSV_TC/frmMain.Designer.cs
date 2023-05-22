@@ -57,6 +57,8 @@ namespace QLDSV_TC
             this.HOTEN = new System.Windows.Forms.ToolStripStatusLabel();
             this.NHOM = new System.Windows.Forms.ToolStripStatusLabel();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnPhieuDiemSV = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -76,10 +78,11 @@ namespace QLDSV_TC
             this.btnNhapDiem,
             this.btnHocPhi,
             this.btnInDiemMon,
-            this.btnHPTheoLop});
+            this.btnHPTheoLop,
+            this.btnPhieuDiemSV});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(9);
-            this.ribbonControl1.MaxItemId = 17;
+            this.ribbonControl1.MaxItemId = 18;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -152,7 +155,8 @@ namespace QLDSV_TC
             this.ribbonPageGroup5,
             this.ribbonPageGroup6,
             this.ribbonPageGroup7,
-            this.ribbonPageGroup8});
+            this.ribbonPageGroup8,
+            this.ribbonPageGroup9});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Quản Trị";
             // 
@@ -260,6 +264,19 @@ namespace QLDSV_TC
             // 
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnPhieuDiemSV);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.Text = "ribbonPageGroup9";
+            // 
+            // btnPhieuDiemSV
+            // 
+            this.btnPhieuDiemSV.Caption = "Phiếu Điểm SV";
+            this.btnPhieuDiemSV.Id = 17;
+            this.btnPhieuDiemSV.Name = "btnPhieuDiemSV";
+            this.btnPhieuDiemSV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhieuDiemSV_ItemClick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -311,6 +328,8 @@ namespace QLDSV_TC
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem btnHPTheoLop;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarButtonItem btnPhieuDiemSV;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
     }
 }
 

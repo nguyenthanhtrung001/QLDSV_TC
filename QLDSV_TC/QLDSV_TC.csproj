@@ -116,9 +116,21 @@
     <Compile Include="Frpt_InDiemTheoMon.Designer.cs">
       <DependentUpon>Frpt_InDiemTheoMon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frpt_PhieuDiemSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frpt_PhieuDiemSV.Designer.cs">
+      <DependentUpon>Frpt_PhieuDiemSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="MoneyConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xprt_SP_RP_PD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xprt_SP_RP_PD.Designer.cs">
+      <DependentUpon>Xprt_SP_RP_PD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Xrpt_SP_GETDSNHAPDIEM.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -143,6 +155,9 @@
     <EmbeddedResource Include="Frpt_HPTheoLop.resx">
       <DependentUpon>Frpt_HPTheoLop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frpt_PhieuDiemSV.resx">
+      <DependentUpon>Frpt_PhieuDiemSV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -153,6 +168,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Xprt_SP_RP_PD.resx">
+      <DependentUpon>Xprt_SP_RP_PD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_SP_GETDSNHAPDIEM.resx">
       <DependentUpon>Xrpt_SP_GETDSNHAPDIEM.cs</DependentUpon>
     </EmbeddedResource>
