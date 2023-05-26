@@ -97,20 +97,7 @@ namespace QLDSV_TC
             }
         }
 
-        private void btnHPTheoLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Form frm = this.checkExits(typeof(Frpt_HPTheoLop));
-            if (frm != null) frm.Activate();
-            else
-            {
-                Frpt_HPTheoLop f = new Frpt_HPTheoLop();
-                f.MdiParent = this;
-                f.Show();
-
-
-
-            }
-        }
+       
 
         private void btnPhieuDiemSV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -144,7 +131,9 @@ namespace QLDSV_TC
 
         }
 
-        private void btnTaoTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        
+
+        private void btnTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Form frm = this.checkExits(typeof(FrmTaoTaiKhoan));
             if (frm != null) frm.Activate();
@@ -157,6 +146,22 @@ namespace QLDSV_TC
 
 
             }
+        }
+
+        private void btnHocPhiLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExits(typeof(Frpt_HPTheoLop));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Frpt_HPTheoLop f = new Frpt_HPTheoLop();
+                f.MdiParent = this;
+                f.Show();
+
+
+
+            }
+
         }
     }
 }
