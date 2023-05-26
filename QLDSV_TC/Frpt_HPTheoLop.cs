@@ -84,6 +84,7 @@ namespace QLDSV_TC
 
         private void btnIN_Click(object sender, EventArgs e)
         {
+
             int hk = 1;
             try
             {

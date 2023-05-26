@@ -54,6 +54,8 @@ namespace QLDSV_TC
             // 
             // btnIn
             // 
+            this.btnIn.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.btnIn.Appearance.Options.UseForeColor = true;
             this.btnIn.Location = new System.Drawing.Point(322, 115);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(112, 34);

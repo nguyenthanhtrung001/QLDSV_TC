@@ -75,6 +75,7 @@ namespace QLDSV_TC
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.NavajoWhite;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -85,10 +86,10 @@ namespace QLDSV_TC
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(301, 13);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Location = new System.Drawing.Point(22, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(268, 29);
+            this.label1.Size = new System.Drawing.Size(287, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "NHẬP ĐIỂM SINH VIÊN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -116,6 +117,8 @@ namespace QLDSV_TC
             // 
             // btnCapNhat
             // 
+            this.btnCapNhat.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnCapNhat.Appearance.Options.UseForeColor = true;
             this.btnCapNhat.Location = new System.Drawing.Point(309, 115);
             this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btnCapNhat.Name = "btnCapNhat";
@@ -126,6 +129,8 @@ namespace QLDSV_TC
             // 
             // btnBatdau
             // 
+            this.btnBatdau.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.btnBatdau.Appearance.Options.UseForeColor = true;
             this.btnBatdau.Location = new System.Drawing.Point(159, 115);
             this.btnBatdau.Margin = new System.Windows.Forms.Padding(4);
             this.btnBatdau.Name = "btnBatdau";

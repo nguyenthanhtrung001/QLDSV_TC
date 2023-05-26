@@ -65,7 +65,7 @@ namespace QLDSV_TC
             // txtLogin
             // 
             this.txtLogin.Location = new System.Drawing.Point(167, 78);
-            this.txtLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLogin.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(361, 28);
             this.txtLogin.TabIndex = 2;
@@ -82,20 +82,20 @@ namespace QLDSV_TC
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.Location = new System.Drawing.Point(250, 310);
-            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDangNhap.Location = new System.Drawing.Point(90, 258);
+            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(168, 51);
+            this.btnDangNhap.Size = new System.Drawing.Size(252, 76);
             this.btnDangNhap.TabIndex = 4;
             this.btnDangNhap.Text = " Đăng Nhập";
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(462, 310);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThoat.Location = new System.Drawing.Point(381, 258);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(168, 51);
+            this.btnThoat.Size = new System.Drawing.Size(252, 76);
             this.btnThoat.TabIndex = 4;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -120,18 +120,18 @@ namespace QLDSV_TC
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(167, 117);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPass.Location = new System.Drawing.Point(167, 118);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(361, 28);
             this.txtPass.TabIndex = 2;
             // 
             // btnDangNhap1
             // 
-            this.btnDangNhap1.Location = new System.Drawing.Point(167, 207);
-            this.btnDangNhap1.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDangNhap1.Location = new System.Drawing.Point(348, 172);
+            this.btnDangNhap1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnDangNhap1.Name = "btnDangNhap1";
-            this.btnDangNhap1.Size = new System.Drawing.Size(112, 34);
+            this.btnDangNhap1.Size = new System.Drawing.Size(168, 51);
             this.btnDangNhap1.TabIndex = 5;
             this.btnDangNhap1.Text = " Đăng Nhập";
             this.btnDangNhap1.Click += new System.EventHandler(this.btnDangNhap1_Click);
@@ -140,7 +140,7 @@ namespace QLDSV_TC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(611, 291);
+            this.ClientSize = new System.Drawing.Size(1080, 615);
             this.Controls.Add(this.btnDangNhap1);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnDangNhap);

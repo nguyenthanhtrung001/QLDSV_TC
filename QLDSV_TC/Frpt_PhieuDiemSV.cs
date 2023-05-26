@@ -24,6 +24,7 @@ namespace QLDSV_TC
         {
 
             Xprt_SP_RP_PD rpt = new Xprt_SP_RP_PD(txtMaSV.Text.ToString());
+            rpt.lblMaSV.Text = txtMaSV.Text.ToUpper().ToString();
             ReportPrintTool print = new ReportPrintTool(rpt);
 
             print.ShowPreviewDialog();

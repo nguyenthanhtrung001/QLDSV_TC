@@ -51,10 +51,12 @@ namespace QLDSV_TC
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
+           
 
             // Thêm dòng trống
             AddEmptyRow(dt_DS_HP);
             btnGhi.Enabled = mnHPGhi.Enabled = true;
+            
 
 
         }
@@ -201,6 +203,11 @@ namespace QLDSV_TC
                 {
                     dgvHP.CurrentCell = dgvHP.Rows[newRowIdx].Cells[0];
                 }
+               
+               
+                dgvHP.Rows[newRowIdx].Cells["nIENKHOADataGridViewTextBoxColumn"].ReadOnly = false;
+                dgvHP.Rows[newRowIdx].Cells[" hOCKYDataGridViewTextBoxColumn"].ReadOnly = false;
+               
             }
             catch (Exception)
             {
@@ -242,6 +249,35 @@ namespace QLDSV_TC
 
         }
 
+        public int check_HP(string masv,string nienkhoa,string hocky)
+        {
+           // if (Program.KetNoi() == 0) return 2;
+
+            string strlenh = " DECLARE @return_value int " +
+                "EXEC @return_value=SP_CHECK_ID_HOCPHI_F_CTHP '" + masv + "','" + nienkhoa + "','" + hocky + "'" +
+                " SELECT  'Return Value' = @return_value ";
+
+            SqlDataReader myReader = Program.ExecSqlDataReader(strlenh);
+            if (myReader == null) return 2;
+            String status = "";
+            myReader.Read();
+            try
+            {
+                status = myReader.GetValue(0).ToString();
+                myReader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+
+            }
+            if (status.Equals("1"))
+            {
+                MessageBox.Show("Đã Tồn tại học phí này!!!"); return 1;
+            }
+            else return 0;
+        }
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
@@ -257,33 +293,53 @@ namespace QLDSV_TC
             delete_emty(dt_DS_HP);
 
 
-
+            if (Program.KetNoi() == 0) return;
 
             for (int i = 0; i < dt_DS_HP.Rows.Count; i++)
             {
 
+                /*if (check_HP(masv, dt_DS_HP.Rows[i]["NIENKHOA"].ToString(), dt_DS_HP.Rows[i]["HOCKY"].ToString()) == 1)
+                {
+                    
 
+                    btnTimKiem_Click(sender, e);
+                    return;
+                }*/
                 dt.Rows.Add(masv, dt_DS_HP.Rows[i]["NIENKHOA"], dt_DS_HP.Rows[i]["HOCKY"], dt_DS_HP.Rows[i]["HOCPHI"]);
+                
 
             }
+            
 
 
-            SqlParameter para = new SqlParameter();
-            para.SqlDbType = SqlDbType.Structured;
-            para.TypeName = "dbo.TYPE_HP";
-            para.ParameterName = "@HP";
-            para.Value = dt;
 
-            Program.KetNoi();
-            SqlCommand Sqlcmd = new SqlCommand("SP_UPDATE_HP", Program.conn);
-            Sqlcmd.Parameters.Clear();
-            Sqlcmd.CommandType = CommandType.StoredProcedure;
-            Sqlcmd.Parameters.Add(para);
-            Sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Thành Công");
-            ActivateCellFormatting();
-            btnGhi.Enabled = mnHPGhi.Enabled = false;
-            btnTimKiem_Click(sender, e);
+            try
+            {
+                SqlParameter para = new SqlParameter();
+                para.SqlDbType = SqlDbType.Structured;
+                para.TypeName = "dbo.TYPE_HP";
+                para.ParameterName = "@HP";
+                para.Value = dt;
+
+                Program.KetNoi();
+                SqlCommand Sqlcmd = new SqlCommand("SP_UPDATE_HP", Program.conn);
+                Sqlcmd.Parameters.Clear();
+                Sqlcmd.CommandType = CommandType.StoredProcedure;
+                Sqlcmd.Parameters.Add(para);
+                Sqlcmd.ExecuteNonQuery();
+                MessageBox.Show("Thành Công");
+                ActivateCellFormatting();
+                btnGhi.Enabled = mnHPGhi.Enabled = false;
+                btnTimKiem_Click(sender, e);
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Đã Tồn tại học phí này!!!");
+                bds_HP.RemoveCurrent();
+
+            }
+            
 
 
 
@@ -361,6 +417,7 @@ namespace QLDSV_TC
         {
             DevExpress.XtraBars.BarItemLink link = null; // Tạo đối tượng BarItemLink
             btnGhi_ItemClick(sender, new DevExpress.XtraBars.ItemClickEventArgs(null, link)); // Truyền đối tượng BarItemLink vào hàm ItemClickEventArgs
+       
         }
 
         private void mnCTHPThem_Click(object sender, EventArgs e)
@@ -407,23 +464,34 @@ namespace QLDSV_TC
 
 
 
-            SqlParameter para = new SqlParameter();
-            para.SqlDbType = SqlDbType.Structured;
-            para.TypeName = "dbo.TYPE_CTHP";
-            para.ParameterName = "@CT_HP";
-            para.Value = dt;
+            try
+            {
 
-            Program.KetNoi();
-            SqlCommand Sqlcmd = new SqlCommand("SP_UPDATE_CT_HP", Program.conn);
-            Sqlcmd.Parameters.Clear();
-            Sqlcmd.CommandType = CommandType.StoredProcedure;
-            Sqlcmd.Parameters.Add(para);
-            Sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Thành Công");
-            btnTimKiem_Click(sender, e);
-            ShowDataGridView();
-            mnCTHPGhi.Enabled = false;
+                SqlParameter para = new SqlParameter();
+                para.SqlDbType = SqlDbType.Structured;
+                para.TypeName = "dbo.TYPE_CTHP";
+                para.ParameterName = "@CT_HP";
+                para.Value = dt;
 
+                Program.KetNoi();
+                SqlCommand Sqlcmd = new SqlCommand("SP_UPDATE_CT_HP", Program.conn);
+                Sqlcmd.Parameters.Clear();
+                Sqlcmd.CommandType = CommandType.StoredProcedure;
+                Sqlcmd.Parameters.Add(para);
+                Sqlcmd.ExecuteNonQuery();
+                MessageBox.Show("Thành Công");
+                btnTimKiem_Click(sender, e);
+                ShowDataGridView();
+                mnCTHPGhi.Enabled = false;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Vui lòng xem lại ngày đóng!!");
+               
+                mnCTHPGhi.Enabled = false;
+                bdsCTHP.RemoveCurrent();
+            }
 
 
 
@@ -702,22 +770,7 @@ namespace QLDSV_TC
                     try
                     {
                        
-                        string cmdText = "EXEC DeleteHOCPHI  '" + txtMASV.Text.ToString() + "','" + nienKhoa + "','" + hocky + "'";
-                        using (SqlDataReader reader = Program.ExecSqlDataReader(cmdText))
-                        {
-                            if (reader != null)
-                            {
-                                // SP đã thực thi thành công, xử lý kết quả nếu cần
-                                MessageBox.Show("Xóa Thành Công!!!");
-                                bds_HP.RemoveCurrent();
-
-                            }
-                            else
-                            {
-                                // SP thất bại, xử lý lỗi nếu cần
-                                MessageBox.Show("SP thất bại");
-                            }
-                        }
+                       
 
 
                     }

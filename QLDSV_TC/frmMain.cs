@@ -127,6 +127,37 @@ namespace QLDSV_TC
             }
 
         }
+
+        private void btnDKTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExits(typeof(FrmDK));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FrmDK f = new FrmDK();
+                f.MdiParent = this;
+                f.Show();
+
+
+
+            }
+
+        }
+
+        private void btnTaoTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExits(typeof(FrmTaoTaiKhoan));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FrmTaoTaiKhoan f = new FrmTaoTaiKhoan();
+                f.MdiParent = this;
+                f.Show();
+
+
+
+            }
+        }
     }
 }
 

@@ -60,16 +60,10 @@ namespace QLDSV_TC
         private void frmNhapDiem_Load(object sender, EventArgs e)
         {
 
-
-
-
-
             btnCapNhat.Enabled = false;
             DS1.EnforceConstraints = false;
             this.lOPTINCHITableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTINCHITableAdapter.Fill(this.DS1.LOPTINCHI);
-
-
 
             layDS_CN("SELECT * FROM Get_Subscribes");
 
@@ -82,15 +76,10 @@ namespace QLDSV_TC
             {
                 cbxKhoa.Enabled = false;
             }
-
-
             cbxKhoa.SelectedIndex = Program.mChiNhanh;
 
             /* layDSMon("SELECT * FROM V_DS_MonHoc");
              cbxMonHoc.SelectedIndex = 1; */
-
-
-
 
             // TODO: This line of code loads data into the 'dS1.LOPTINCHI' table. You can move, or remove it, as needed.
             //           

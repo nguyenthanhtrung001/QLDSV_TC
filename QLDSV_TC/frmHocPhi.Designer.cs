@@ -34,12 +34,12 @@ namespace QLDSV_TC
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHocPhi));
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -75,11 +75,6 @@ namespace QLDSV_TC
             this.tableAdapterManager = new QLDSV_TC.DS_HPTableAdapters.TableAdapterManager();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.dgvHP = new System.Windows.Forms.DataGridView();
-            this.nIENKHOADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hOCKYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hOCPHIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sOTIENDONGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TIENCONNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuHP = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnHPThemMoi = new System.Windows.Forms.ToolStripMenuItem();
             this.mnHPGhi = new System.Windows.Forms.ToolStripMenuItem();
@@ -105,6 +100,11 @@ namespace QLDSV_TC
             this.gET_THONGTIN_HOCPHITableAdapter = new QLDSV_TC.DS_HPTableAdapters.GET_THONGTIN_HOCPHITableAdapter();
             this.sINHVIENTableAdapter = new QLDSV_TC.DS_HPTableAdapters.SINHVIENTableAdapter();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.nIENKHOADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hOCKYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hOCPHIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sOTIENDONGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TIENCONNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.sidePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -165,9 +165,9 @@ namespace QLDSV_TC
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnGhi),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnXoa),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnThoat)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnGhi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXoa, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThoat, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -187,16 +187,20 @@ namespace QLDSV_TC
             this.btnGhi.Caption = "Ghi";
             this.btnGhi.Hint = "Ghi";
             this.btnGhi.Id = 7;
+            this.btnGhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGhi.ImageOptions.Image")));
+            this.btnGhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnGhi.ImageOptions.LargeImage")));
             this.btnGhi.Name = "btnGhi";
-            toolTipTitleItem2.Text = "Ghi";
-            superToolTip2.Items.Add(toolTipTitleItem2);
-            this.btnGhi.SuperTip = superToolTip2;
+            toolTipTitleItem1.Text = "Ghi";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            this.btnGhi.SuperTip = superToolTip1;
             this.btnGhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGhi_ItemClick);
             // 
             // btnXoa
             // 
             this.btnXoa.Caption = "Xóa";
             this.btnXoa.Id = 14;
+            this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
+            this.btnXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.LargeImage")));
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoa_ItemClick);
             // 
@@ -204,6 +208,8 @@ namespace QLDSV_TC
             // 
             this.btnThoat.Caption = "Thoát";
             this.btnThoat.Id = 11;
+            this.btnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.Image")));
+            this.btnThoat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.LargeImage")));
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
             // 
@@ -441,19 +447,19 @@ namespace QLDSV_TC
             this.dgvHP.AllowUserToAddRows = false;
             this.dgvHP.AllowUserToResizeColumns = false;
             this.dgvHP.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvHP.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvHP.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvHP.AutoGenerateColumns = false;
             this.dgvHP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHP.BackgroundColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nIENKHOADataGridViewTextBoxColumn,
@@ -463,20 +469,20 @@ namespace QLDSV_TC
             this.TIENCONNO});
             this.dgvHP.ContextMenuStrip = this.menuHP;
             this.dgvHP.DataSource = this.bdsDSHP;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHP.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHP.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHP.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvHP.Location = new System.Drawing.Point(2, 2);
             this.dgvHP.Name = "dgvHP";
             this.dgvHP.RowHeadersWidth = 62;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            this.dgvHP.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvHP.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvHP.RowTemplate.Height = 28;
             this.dgvHP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHP.Size = new System.Drawing.Size(1940, 225);
@@ -484,41 +490,6 @@ namespace QLDSV_TC
             this.dgvHP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHP_CellDoubleClick);
             this.dgvHP.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvHP_CellFormatting);
             this.dgvHP.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHP_CellValueChanged);
-            // 
-            // nIENKHOADataGridViewTextBoxColumn
-            // 
-            this.nIENKHOADataGridViewTextBoxColumn.DataPropertyName = "NIENKHOA";
-            this.nIENKHOADataGridViewTextBoxColumn.HeaderText = "NIÊN KHÓA";
-            this.nIENKHOADataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nIENKHOADataGridViewTextBoxColumn.Name = "nIENKHOADataGridViewTextBoxColumn";
-            // 
-            // hOCKYDataGridViewTextBoxColumn
-            // 
-            this.hOCKYDataGridViewTextBoxColumn.DataPropertyName = "HOCKY";
-            this.hOCKYDataGridViewTextBoxColumn.HeaderText = "HỌC KỲ";
-            this.hOCKYDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.hOCKYDataGridViewTextBoxColumn.Name = "hOCKYDataGridViewTextBoxColumn";
-            // 
-            // hOCPHIDataGridViewTextBoxColumn
-            // 
-            this.hOCPHIDataGridViewTextBoxColumn.DataPropertyName = "HOCPHI";
-            this.hOCPHIDataGridViewTextBoxColumn.HeaderText = "HỌC PHÍ";
-            this.hOCPHIDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.hOCPHIDataGridViewTextBoxColumn.Name = "hOCPHIDataGridViewTextBoxColumn";
-            // 
-            // sOTIENDONGDataGridViewTextBoxColumn
-            // 
-            this.sOTIENDONGDataGridViewTextBoxColumn.DataPropertyName = "SOTIENDONG";
-            this.sOTIENDONGDataGridViewTextBoxColumn.HeaderText = "SỐ TIỀN ĐÓNG";
-            this.sOTIENDONGDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.sOTIENDONGDataGridViewTextBoxColumn.Name = "sOTIENDONGDataGridViewTextBoxColumn";
-            this.sOTIENDONGDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // TIENCONNO
-            // 
-            this.TIENCONNO.HeaderText = "TIỀN CÒN NỢ";
-            this.TIENCONNO.MinimumWidth = 8;
-            this.TIENCONNO.Name = "TIENCONNO";
             // 
             // menuHP
             // 
@@ -534,21 +505,21 @@ namespace QLDSV_TC
             // mnHPThemMoi
             // 
             this.mnHPThemMoi.Name = "mnHPThemMoi";
-            this.mnHPThemMoi.Size = new System.Drawing.Size(240, 32);
+            this.mnHPThemMoi.Size = new System.Drawing.Size(164, 32);
             this.mnHPThemMoi.Text = "Thêm Mới";
             this.mnHPThemMoi.Click += new System.EventHandler(this.mnHPThemMoi_Click);
             // 
             // mnHPGhi
             // 
             this.mnHPGhi.Name = "mnHPGhi";
-            this.mnHPGhi.Size = new System.Drawing.Size(240, 32);
+            this.mnHPGhi.Size = new System.Drawing.Size(164, 32);
             this.mnHPGhi.Text = "Ghi";
             this.mnHPGhi.Click += new System.EventHandler(this.mnHPGhi_Click);
             // 
             // mnHPXoa
             // 
             this.mnHPXoa.Name = "mnHPXoa";
-            this.mnHPXoa.Size = new System.Drawing.Size(240, 32);
+            this.mnHPXoa.Size = new System.Drawing.Size(164, 32);
             this.mnHPXoa.Text = "Xóa";
             this.mnHPXoa.Click += new System.EventHandler(this.mnHPXoa_Click);
             // 
@@ -643,7 +614,7 @@ namespace QLDSV_TC
             this.mnCTHPGhi,
             this.mnCTHPXoa});
             this.menuCTHP.Name = "menuCTHP";
-            this.menuCTHP.Size = new System.Drawing.Size(241, 133);
+            this.menuCTHP.Size = new System.Drawing.Size(165, 100);
             // 
             // mnCTHPThem
             // 
@@ -662,7 +633,7 @@ namespace QLDSV_TC
             // mnCTHPXoa
             // 
             this.mnCTHPXoa.Name = "mnCTHPXoa";
-            this.mnCTHPXoa.Size = new System.Drawing.Size(240, 32);
+            this.mnCTHPXoa.Size = new System.Drawing.Size(164, 32);
             this.mnCTHPXoa.Text = "Xóa";
             this.mnCTHPXoa.Click += new System.EventHandler(this.mnCTHPXoa_Click);
             // 
@@ -683,6 +654,44 @@ namespace QLDSV_TC
             // sINHVIENTableAdapter
             // 
             this.sINHVIENTableAdapter.ClearBeforeFill = true;
+            // 
+            // nIENKHOADataGridViewTextBoxColumn
+            // 
+            this.nIENKHOADataGridViewTextBoxColumn.DataPropertyName = "NIENKHOA";
+            this.nIENKHOADataGridViewTextBoxColumn.HeaderText = "NIÊN KHÓA";
+            this.nIENKHOADataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nIENKHOADataGridViewTextBoxColumn.Name = "nIENKHOADataGridViewTextBoxColumn";
+            this.nIENKHOADataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // hOCKYDataGridViewTextBoxColumn
+            // 
+            this.hOCKYDataGridViewTextBoxColumn.DataPropertyName = "HOCKY";
+            this.hOCKYDataGridViewTextBoxColumn.HeaderText = "HỌC KỲ";
+            this.hOCKYDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.hOCKYDataGridViewTextBoxColumn.Name = "hOCKYDataGridViewTextBoxColumn";
+            this.hOCKYDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // hOCPHIDataGridViewTextBoxColumn
+            // 
+            this.hOCPHIDataGridViewTextBoxColumn.DataPropertyName = "HOCPHI";
+            this.hOCPHIDataGridViewTextBoxColumn.HeaderText = "HỌC PHÍ";
+            this.hOCPHIDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.hOCPHIDataGridViewTextBoxColumn.Name = "hOCPHIDataGridViewTextBoxColumn";
+            // 
+            // sOTIENDONGDataGridViewTextBoxColumn
+            // 
+            this.sOTIENDONGDataGridViewTextBoxColumn.DataPropertyName = "SOTIENDONG";
+            this.sOTIENDONGDataGridViewTextBoxColumn.HeaderText = "SỐ TIỀN ĐÓNG";
+            this.sOTIENDONGDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.sOTIENDONGDataGridViewTextBoxColumn.Name = "sOTIENDONGDataGridViewTextBoxColumn";
+            this.sOTIENDONGDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // TIENCONNO
+            // 
+            this.TIENCONNO.HeaderText = "TIỀN CÒN NỢ";
+            this.TIENCONNO.MinimumWidth = 8;
+            this.TIENCONNO.Name = "TIENCONNO";
+            this.TIENCONNO.ReadOnly = true;
             // 
             // frmHocPhi
             // 
@@ -791,13 +800,13 @@ namespace QLDSV_TC
         private DevExpress.XtraEditors.TextEdit txtLop;
         private DevExpress.XtraEditors.TextEdit txtTen;
         private DevExpress.XtraEditors.TextEdit txtMASV;
+        private DataGridViewTextBoxColumn nGAYDONGDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn sOTIENDONGDataGridViewTextBoxColumn1;
+        private DevExpress.XtraBars.BarButtonItem btnXoa;
         private DataGridViewTextBoxColumn nIENKHOADataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn hOCKYDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn hOCPHIDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn sOTIENDONGDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn TIENCONNO;
-        private DataGridViewTextBoxColumn nGAYDONGDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn sOTIENDONGDataGridViewTextBoxColumn1;
-        private DevExpress.XtraBars.BarButtonItem btnXoa;
     }
 }

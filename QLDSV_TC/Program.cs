@@ -43,7 +43,17 @@ namespace QLDSV_TC
         public static BindingSource bds_dspm = new BindingSource();// giữ bds khi đăng nhập.
         public static frmMain frmChinh;
 
+        //trieu
+        public static int hocPhi = 550000;
+        public static int mKhoa = 0;
+        // han
+        public static String Control = "";
+        public static String mMAKHOA = "";
 
+
+
+
+        //trieu
         public static int KetNoi()
         {
             if (Program.conn != null && Program.conn.State == ConnectionState.Open) Program.conn.Close();
@@ -96,6 +106,16 @@ namespace QLDSV_TC
             return dt1;
 
         }
+        // Hàm thực thi truy vấn có ther chỉnh sửa
+        public static DataTable ExecSqlQuery(String strLenh)
+        {
+            DataTable dt = new DataTable();
+            if (conn.State == ConnectionState.Closed) conn.Open();
+            SqlDataAdapter da = new SqlDataAdapter(strLenh, conn);
+            da.Fill(dt);
+            conn.Close();
+            return dt;
+        }
 
         public static DataTable ExecSqlDataTable(String cmd)
         {
@@ -128,6 +148,7 @@ namespace QLDSV_TC
                 return 0;
             }
         }
+
         public static void SetEnableOfButton(Form frm, Boolean Active)
         {
 
@@ -135,6 +156,22 @@ namespace QLDSV_TC
                 if ((ctl) is Button)
                     ctl.Enabled = Active;
         }
+
+        //trieu
+        // Hàm kiểm tra giá trị trả về có phải duy nhất hay không
+        public static int CheckPrimaryKey(String query)
+        {
+            SqlDataReader dataReader = Program.ExecSqlDataReader(query);
+            if (dataReader == null)
+                return -1;
+
+            dataReader.Read();
+            int result = dataReader.GetInt32(0);
+            dataReader.Close();
+            return result;
+        }
+
+
 
         [STAThread]
         static void Main()

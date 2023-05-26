@@ -39,12 +39,16 @@ namespace QLDSV_TC
             this.btnHocPhi = new DevExpress.XtraBars.BarButtonItem();
             this.btnInDiemMon = new DevExpress.XtraBars.BarButtonItem();
             this.btnHPTheoLop = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPhieuDiemSV = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDKTC = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -57,8 +61,8 @@ namespace QLDSV_TC
             this.HOTEN = new System.Windows.Forms.ToolStripStatusLabel();
             this.NHOM = new System.Windows.Forms.ToolStripStatusLabel();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnPhieuDiemSV = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTaoTK = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -79,10 +83,12 @@ namespace QLDSV_TC
             this.btnHocPhi,
             this.btnInDiemMon,
             this.btnHPTheoLop,
-            this.btnPhieuDiemSV});
+            this.btnPhieuDiemSV,
+            this.btnDKTC,
+            this.btnTaoTK});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(9);
-            this.ribbonControl1.MaxItemId = 18;
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(21, 21, 21, 21);
+            this.ribbonControl1.MaxItemId = 20;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -148,6 +154,20 @@ namespace QLDSV_TC
             this.btnHPTheoLop.Name = "btnHPTheoLop";
             this.btnHPTheoLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHPTheoLop_ItemClick);
             // 
+            // btnPhieuDiemSV
+            // 
+            this.btnPhieuDiemSV.Caption = "Phiếu Điểm SV";
+            this.btnPhieuDiemSV.Id = 17;
+            this.btnPhieuDiemSV.Name = "btnPhieuDiemSV";
+            this.btnPhieuDiemSV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhieuDiemSV_ItemClick);
+            // 
+            // btnDKTC
+            // 
+            this.btnDKTC.Caption = "Đăng ký TC";
+            this.btnDKTC.Id = 18;
+            this.btnDKTC.Name = "btnDKTC";
+            this.btnDKTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDKTC_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -156,7 +176,8 @@ namespace QLDSV_TC
             this.ribbonPageGroup6,
             this.ribbonPageGroup7,
             this.ribbonPageGroup8,
-            this.ribbonPageGroup9});
+            this.ribbonPageGroup9,
+            this.ribbonPageGroup10});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Quản Trị";
             // 
@@ -190,15 +211,29 @@ namespace QLDSV_TC
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             this.ribbonPageGroup8.Text = "ribbonPageGroup8";
             // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnPhieuDiemSV);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.Text = "ribbonPageGroup9";
+            // 
+            // ribbonPageGroup10
+            // 
+            this.ribbonPageGroup10.ItemLinks.Add(this.btnDKTC);
+            this.ribbonPageGroup10.Name = "ribbonPageGroup10";
+            this.ribbonPageGroup10.Text = "ribbonPageGroup10";
+            // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup11});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Báo Cáo";
             // 
             // ribbonPageGroup2
             // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnTaoTK);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
@@ -264,18 +299,17 @@ namespace QLDSV_TC
             // 
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             // 
-            // ribbonPageGroup9
+            // btnTaoTK
             // 
-            this.ribbonPageGroup9.ItemLinks.Add(this.btnPhieuDiemSV);
-            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
-            this.ribbonPageGroup9.Text = "ribbonPageGroup9";
+            this.btnTaoTK.Caption = "Tạo tài khoản";
+            this.btnTaoTK.Id = 19;
+            this.btnTaoTK.Name = "btnTaoTK";
+            this.btnTaoTK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoTK_ItemClick);
             // 
-            // btnPhieuDiemSV
+            // ribbonPageGroup11
             // 
-            this.btnPhieuDiemSV.Caption = "Phiếu Điểm SV";
-            this.btnPhieuDiemSV.Id = 17;
-            this.btnPhieuDiemSV.Name = "btnPhieuDiemSV";
-            this.btnPhieuDiemSV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhieuDiemSV_ItemClick);
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            this.ribbonPageGroup11.Text = "ribbonPageGroup11";
             // 
             // frmMain
             // 
@@ -330,6 +364,10 @@ namespace QLDSV_TC
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.BarButtonItem btnPhieuDiemSV;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.BarButtonItem btnDKTC;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
+        private DevExpress.XtraBars.BarButtonItem btnTaoTK;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
     }
 }
 
