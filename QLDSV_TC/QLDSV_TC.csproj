@@ -81,6 +81,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_HP.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Frpt_in_DSSV_DKLTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frpt_in_DSSV_DKLTC.Designer.cs">
+      <DependentUpon>Frpt_in_DSSV_DKLTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMonH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,7 @@
     </Compile>
     <Compile Include="MoneyConverter.cs" />
     <Compile Include="Objects\Lop.cs" />
+    <Compile Include="Objects\LopTinChi.cs" />
     <Compile Include="Objects\MonHoc.cs" />
     <Compile Include="Objects\SinhVien.cs" />
     <Compile Include="Program.cs" />
@@ -176,12 +183,30 @@
       <DependentUpon>QLDSV_TCDataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="Redo.cs" />
+    <Compile Include="Rpf_DSLTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpf_DSLTC.Designer.cs">
+      <DependentUpon>Rpf_DSLTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Undo.cs" />
+    <Compile Include="Xprt_SP_RP_DSSVDKLTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xprt_SP_RP_DSSVDKLTC.Designer.cs">
+      <DependentUpon>Xprt_SP_RP_DSSVDKLTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Xprt_SP_RP_PD.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Xprt_SP_RP_PD.Designer.cs">
       <DependentUpon>Xprt_SP_RP_PD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xrpt_DSLTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_DSLTC.Designer.cs">
+      <DependentUpon>Xrpt_DSLTC.cs</DependentUpon>
     </Compile>
     <Compile Include="Xrpt_SP_GETDSNHAPDIEM.cs">
       <SubType>Component</SubType>
@@ -207,17 +232,32 @@
     <EmbeddedResource Include="frmHocPhi.resx">
       <DependentUpon>frmHocPhi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLopHoc.resx">
+      <DependentUpon>frmLopHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLopTinC.resx">
+      <DependentUpon>FrmLopTinC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhapDiem.resx">
       <DependentUpon>frmNhapDiem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSinhVien.resx">
+      <DependentUpon>frmSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmTaoTaiKhoan.resx">
       <DependentUpon>FrmTaoTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frpt_HPTheoLop.resx">
       <DependentUpon>Frpt_HPTheoLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frpt_InDiemTheoMon.resx">
+      <DependentUpon>Frpt_InDiemTheoMon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frpt_in_DSSV_DKLTC.resx">
+      <DependentUpon>Frpt_in_DSSV_DKLTC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frpt_PhieuDiemSV.resx">
       <DependentUpon>Frpt_PhieuDiemSV.cs</DependentUpon>
@@ -232,8 +272,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Rpf_DSLTC.resx">
+      <DependentUpon>Rpf_DSLTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xprt_SP_RP_DSSVDKLTC.resx">
+      <DependentUpon>Xprt_SP_RP_DSSVDKLTC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Xprt_SP_RP_PD.resx">
       <DependentUpon>Xprt_SP_RP_PD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_DSLTC.resx">
+      <DependentUpon>Xrpt_DSLTC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_SP_GETDSNHAPDIEM.resx">
       <DependentUpon>Xrpt_SP_GETDSNHAPDIEM.cs</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -60,7 +61,7 @@ namespace QLDSV_TC
         private void getTeacher()
         {
             string command = "SELECT MAGV, HOTEN = RTRIM(MAGV) + ' - ' + HO + ' ' + TEN FROM GIANGVIEN";
-            DataTable data = Program.ExecSqlQuery(command);
+            DataTable data = Program.ExecSqlDataTable(command);
             BindingSource bdsGV = new BindingSource();
             bdsGV.DataSource = data;
 
@@ -69,10 +70,20 @@ namespace QLDSV_TC
             cbbMaGV.ValueMember = "MAGV";
         }
 
-        private void Frm_TaoTaiKhoan_Load(object sender, EventArgs e)
+        public FrmTaoTaiKhoan()
         {
+            InitializeComponent();
+        }
+
+        private void FrmTaoTaiKhoan_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'qLDSV_TCDataSet.KHOA' table. You can move, or remove it, as needed.
+            qLDSV_TCDataSet.EnforceConstraints = false;
+
+            this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
+            this.kHOATableAdapter.Fill(this.qLDSV_TCDataSet.KHOA);
             cbbKhoa.DataSource = Program.bds_dspm;
-            cbbKhoa.DisplayMember = "TENKHOA";
+            cbbKhoa.DisplayMember = "TENCN";
             cbbKhoa.ValueMember = "TENSERVER";
             cbbKhoa.SelectedValue = Program.servername;
 
@@ -83,22 +94,26 @@ namespace QLDSV_TC
                 cbbKhoa.Enabled = true;
                 rdgGroup.Properties.Items[0].Enabled = true;
                 rdgGroup.Properties.Items[1].Enabled = true;
+                rdgGroup.Properties.Items[2].Enabled = false;
+
                 rdgGroup.SelectedIndex = 0;
             }
             else if (Program.mGroup == "KHOA")
             {
+                cbbKhoa.Enabled = false;
                 rdgGroup.Properties.Items[1].Enabled = true;
+                rdgGroup.Properties.Items[0].Enabled = false;
+                rdgGroup.Properties.Items[2].Enabled = false;
                 rdgGroup.SelectedIndex = 1;
             }
             else
             {
+                cbbKhoa.Enabled = false;
                 rdgGroup.Properties.Items[2].Enabled = true;
+                rdgGroup.Properties.Items[1].Enabled = false;
+                rdgGroup.Properties.Items[0].Enabled = false;
                 rdgGroup.SelectedIndex = 2;
             }
-        }
-        public FrmTaoTaiKhoan()
-        {
-            InitializeComponent();
         }
 
         private void cbbKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -107,15 +122,15 @@ namespace QLDSV_TC
                 return;
             Program.servername = cbbKhoa.SelectedValue.ToString();
 
-            if (cbbKhoa.SelectedIndex != Program.mKhoa)
+            if (cbbKhoa.SelectedIndex != Program.mChiNhanh)
             {
                 Program.mlogin = Program.remotelogin;
-                Program.password = Program.remotepassword;
+                Program.mpassword = Program.remotepassword;
             }
             else
             {
                 Program.mlogin = Program.mloginDN;
-                Program.password = Program.passwordDN;
+                Program.mpassword = Program.passwordDN;
             }
 
             if (Program.KetNoi() == 0)
@@ -149,6 +164,8 @@ namespace QLDSV_TC
                 String password = txtPassWord.Text.Trim();
                 String user = cbbMaGV.SelectedValue.ToString().Trim();
                 String role = rdgGroup.EditValue.ToString();
+
+                MessageBox.Show(login + "-----" + password + "-------" + user + "------" + role + "-------");
 
                 String query = " DECLARE @return_value INT" +
 

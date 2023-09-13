@@ -237,7 +237,7 @@ namespace QLDSV_TC
             this.panelControl1.Controls.Add(this.cbbNienKhoa);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 49);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(5);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1160, 149);
             this.panelControl1.TabIndex = 4;
@@ -246,7 +246,7 @@ namespace QLDSV_TC
             // 
             this.txtMalop.Enabled = false;
             this.txtMalop.Location = new System.Drawing.Point(213, 94);
-            this.txtMalop.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtMalop.Margin = new System.Windows.Forms.Padding(5);
             this.txtMalop.Name = "txtMalop";
             this.txtMalop.Size = new System.Drawing.Size(344, 27);
             this.txtMalop.TabIndex = 6;
@@ -255,7 +255,7 @@ namespace QLDSV_TC
             // 
             this.txtHoTen.Enabled = false;
             this.txtHoTen.Location = new System.Drawing.Point(213, 28);
-            this.txtHoTen.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtHoTen.Margin = new System.Windows.Forms.Padding(5);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(344, 27);
             this.txtHoTen.TabIndex = 6;
@@ -291,7 +291,7 @@ namespace QLDSV_TC
             "3",
             "4"});
             this.cbbHocKy.Location = new System.Drawing.Point(1090, 111);
-            this.cbbHocKy.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbbHocKy.Margin = new System.Windows.Forms.Padding(5);
             this.cbbHocKy.Name = "cbbHocKy";
             this.cbbHocKy.Size = new System.Drawing.Size(503, 27);
             this.cbbHocKy.TabIndex = 4;
@@ -302,7 +302,7 @@ namespace QLDSV_TC
             this.cbbNienKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbNienKhoa.FormattingEnabled = true;
             this.cbbNienKhoa.Location = new System.Drawing.Point(1090, 28);
-            this.cbbNienKhoa.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbbNienKhoa.Margin = new System.Windows.Forms.Padding(5);
             this.cbbNienKhoa.Name = "cbbNienKhoa";
             this.cbbNienKhoa.Size = new System.Drawing.Size(503, 27);
             this.cbbNienKhoa.TabIndex = 3;
@@ -312,10 +312,10 @@ namespace QLDSV_TC
             // 
             this.gcDSLTC.DataSource = this.bdsDSLTC;
             this.gcDSLTC.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcDSLTC.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gcDSLTC.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5);
             this.gcDSLTC.Location = new System.Drawing.Point(0, 198);
             this.gcDSLTC.MainView = this.gvDSLTC;
-            this.gcDSLTC.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gcDSLTC.Margin = new System.Windows.Forms.Padding(5);
             this.gcDSLTC.MenuManager = this.barManager1;
             this.gcDSLTC.Name = "gcDSLTC";
             this.gcDSLTC.Size = new System.Drawing.Size(1160, 214);
@@ -345,6 +345,7 @@ namespace QLDSV_TC
             this.gvDSLTC.OptionsBehavior.ReadOnly = true;
             this.gvDSLTC.RowHeight = 30;
             this.gvDSLTC.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvDSLTC_RowClick);
+            this.gvDSLTC.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gvDSLTC_ShowingEditor);
             // 
             // colMALTC
             // 
@@ -410,13 +411,13 @@ namespace QLDSV_TC
             // 
             this.gcSVDK.DataSource = this.bdsDSDK_OF_SV;
             this.gcSVDK.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcSVDK.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gcSVDK.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5);
             gridLevelNode1.RelationName = "Level1";
             this.gcSVDK.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1});
             this.gcSVDK.Location = new System.Drawing.Point(0, 412);
             this.gcSVDK.MainView = this.gvDK;
-            this.gcSVDK.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gcSVDK.Margin = new System.Windows.Forms.Padding(5);
             this.gcSVDK.MenuManager = this.barManager1;
             this.gcSVDK.Name = "gcSVDK";
             this.gcSVDK.Size = new System.Drawing.Size(1160, 249);
@@ -443,6 +444,7 @@ namespace QLDSV_TC
             this.gvDK.GridControl = this.gcSVDK;
             this.gvDK.GroupPanelText = "DANH SÁCH MÔN SINH VIÊN ĐÃ ĐĂNG KÍ";
             this.gvDK.Name = "gvDK";
+            this.gvDK.OptionsBehavior.ReadOnly = true;
             this.gvDK.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvDK_RowClick);
             // 
             // colMALTC1

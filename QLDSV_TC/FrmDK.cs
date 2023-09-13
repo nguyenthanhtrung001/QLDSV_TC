@@ -192,5 +192,10 @@ namespace QLDSV_TC
         {
             this.Close();
         }
+
+        private void gvDSLTC_ShowingEditor(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }

@@ -15,13 +15,9 @@ namespace QLDSV_TC
 {
     public partial class frmNhapDiem : Form
     {
-
-        string nienKhoa = "";
-        string hocKy = "";
-        string nhom = "";
-        string monHoc = "";
         string khoa = "";
-
+       
+       
         DataTable dt_DS_DangKy = new DataTable();
 
 
@@ -34,38 +30,32 @@ namespace QLDSV_TC
 
         }
 
-
-
-
-
-        private void layDS_CN(String cmd)
+        private void fillComboboxNienKhoa()
         {
-            DataTable dt = new DataTable();
+            int currentYear = DateTime.Now.Year;
 
-            SqlDataAdapter da = new SqlDataAdapter(cmd, Program.connstr_publisher);
-            da.Fill(dt);
-            BindingSource bds = new BindingSource();
-            bds.DataSource = dt;
-
-            cbxKhoa.DataSource = bds;
-            bds.Filter = "TENCN LIKE 'KHOA%'";
-
-            cbxKhoa.DisplayMember = "TENCN";
-            cbxKhoa.ValueMember = "TENSERVER";
-
-
-
+            for (int i = 2015; i <= currentYear - 1; i++)
+                cbxNienKhoa.Items.Add((i.ToString() + "-" + (i + 1).ToString()));
         }
 
         private void frmNhapDiem_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'DS1.MONHOC' table. You can move, or remove it, as needed.
+            this.mONHOCTableAdapter.Fill(this.DS1.MONHOC);
+            // TODO: This line of code loads data into the 'DS1.MONHOC' table. You can move, or remove it, as needed.
+            this.mONHOCTableAdapter.Fill(this.DS1.MONHOC);
 
             btnCapNhat.Enabled = false;
             DS1.EnforceConstraints = false;
             this.lOPTINCHITableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTINCHITableAdapter.Fill(this.DS1.LOPTINCHI);
 
-            layDS_CN("SELECT * FROM Get_Subscribes");
+            fillComboboxNienKhoa();
+            Program.bds_dspm.Filter = "TENCN LIKE 'KHOA%'";
+            cbxKhoa.DataSource = Program.bds_dspm;
+            cbxKhoa.DisplayMember = "TENCN";
+            cbxKhoa.ValueMember = "TENSERVER";
+            cbxKhoa.SelectedValue = Program.servername;
 
             if (Program.mGroup == "PGV")
             {
@@ -76,56 +66,14 @@ namespace QLDSV_TC
             {
                 cbxKhoa.Enabled = false;
             }
-            cbxKhoa.SelectedIndex = Program.mChiNhanh;
-
-            /* layDSMon("SELECT * FROM V_DS_MonHoc");
-             cbxMonHoc.SelectedIndex = 1; */
-
-            // TODO: This line of code loads data into the 'dS1.LOPTINCHI' table. You can move, or remove it, as needed.
-            //           
-            if (Program.KetNoi() == 0) return;
             if (cbxKhoa.Text.ToString() == "KHOA CÔNG NGHỆ THÔNG TIN")
             {
                 khoa = "CNTT";
             }
             else khoa = "VT";
-            string strlenh = "SELECT DISTINCT NIENKHOA FROM LOPTINCHI WHERE MAKHOA = '" + khoa + "'";
 
-            layDS_NK(strlenh);
-            nienKhoa = cbxNienKhoa.SelectedValue.ToString();
-
-
-            string strlenh1 = "SELECT DISTINCT HOCKY FROM LOPTINCHI WHERE NIENKHOA='" + nienKhoa + "' AND MAKHOA='" + khoa + "'";
-
-            layDS_HK(strlenh1);
-
-            string strlenh2 = "SELECT m.MAMH, m.TENMH FROM MONHOC m JOIN(SELECT DISTINCT MAMH FROM LOPTINCHI"
-                 + " WHERE NIENKHOA = '" + nienKhoa + "' AND HOCKY = '" + hocKy + "' AND MAKHOA = '" + khoa + "') ltc ON m.MAMH = ltc.MAMH";
-
-
-            layDS_MH(strlenh2);
-
-
-
-
-
+            cbxKhoa.SelectedIndex = Program.mChiNhanh;
         }
-
-
-        private void layDSMon(String cmd)
-        {
-            DataTable dt = new DataTable();
-            this.lOPTINCHITableAdapter.Connection.ConnectionString = Program.connstr;
-            SqlDataAdapter da = new SqlDataAdapter(cmd, Program.connstr);
-            da.Fill(dt);
-
-
-            cbxMonHoc.DataSource = dt;
-            cbxMonHoc.DisplayMember = "TENMH";
-            cbxMonHoc.ValueMember = "MAMH";
-
-        }
-
 
 
 
@@ -133,12 +81,25 @@ namespace QLDSV_TC
         {
 
             btnCapNhat.Enabled = true;
+            string nienKhoa = cbxNienKhoa.Text;
+            string hocKy = cbxHocKy.Text;
+            string nhom = cbxNhom.Text;
+            string monHoc = "";
+            try
+            {
+                 monHoc = cbxMonHoc.SelectedValue.ToString();
+            }
+            catch(Exception ex)
+            {
 
+            }
+            
+           
             try
             {
                 String strlenh = "EXEC SP_GETDSNHAPDIEM '" + nienKhoa + "', '" + hocKy + "', '" + monHoc + "' ,'" + nhom + "'";
 
-                MessageBox.Show(strlenh);
+               // MessageBox.Show(strlenh);
 
                 dt_DS_DangKy = Program.ExecSqlDataTable(strlenh);
                 // bdsNhapDiem.DataSource = dt_DS_DangKy;
@@ -222,62 +183,18 @@ namespace QLDSV_TC
                 MessageBox.Show("Kết nối csdl thất bại!", "", MessageBoxButtons.OK);
                 return;
             }
-
             if (cbxKhoa.Text.ToString() == "KHOA CÔNG NGHỆ THÔNG TIN")
             {
                 khoa = "CNTT";
             }
             else khoa = "VT";
-            string strlenh = "SELECT DISTINCT NIENKHOA FROM LOPTINCHI WHERE MAKHOA = '" + khoa + "'";
 
-            layDS_NK(strlenh);
-
-
+            
 
         }
 
-        private void layDS_NK(String cmd)
-        {
-            DataTable dt = new DataTable();
-            // this.lOPTINCHITableAdapter.Connection.ConnectionString = Program.connstr;
-            SqlDataAdapter da = new SqlDataAdapter(cmd, Program.connstr);
-            da.Fill(dt);
-
-
-            cbxNienKhoa.DataSource = dt;
-            cbxNienKhoa.DisplayMember = "NIENKHOA";
-            cbxNienKhoa.ValueMember = "NIENKHOA";
-            try
-            {
-                cbxNienKhoa.SelectedIndex = 0;
-                nienKhoa = cbxNienKhoa.SelectedValue.ToString();
-
-
-            }
-            catch (Exception ex) { }
-
-
-        }
-        private void layDS_HK(String cmd)
-        {
-            DataTable dt = new DataTable();
-            // this.lOPTINCHITableAdapter.Connection.ConnectionString = Program.connstr;
-            SqlDataAdapter da = new SqlDataAdapter(cmd, Program.connstr);
-            da.Fill(dt);
-
-
-            cbxHocKy.DataSource = dt;
-            cbxHocKy.DisplayMember = "HOCKY";
-            cbxHocKy.ValueMember = "HOCKY";
-            try
-            {
-                cbxHocKy.SelectedIndex = 0;
-                hocKy = cbxHocKy.SelectedValue.ToString();
-            }
-            catch (Exception ex) { }
-
-
-        }
+    
+   
         private void gvDiem_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
         {
             GridView view = sender as GridView;
@@ -444,83 +361,37 @@ namespace QLDSV_TC
             }
         }
 
-        private void cbxNienKhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            nienKhoa = cbxNienKhoa.SelectedValue.ToString();
+        
 
+        
 
-            string strlenh = "SELECT DISTINCT HOCKY FROM LOPTINCHI WHERE NIENKHOA='" + nienKhoa + "' AND MAKHOA='" + khoa + "'";
+        
 
-            layDS_HK(strlenh);
-        }
-
-        private void cbxHocKy_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            hocKy = cbxHocKy.SelectedValue.ToString();
-
-            string strlenh = "SELECT m.MAMH, m.TENMH FROM MONHOC m JOIN(SELECT DISTINCT MAMH FROM LOPTINCHI"
-                  + " WHERE NIENKHOA = '" + nienKhoa + "' AND HOCKY = '" + hocKy + "' AND MAKHOA = '" + khoa + "') ltc ON m.MAMH = ltc.MAMH";
-
-
-            layDS_MH(strlenh);
-        }
-
-        private void cbxMonHoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-
-            string strlenh = "SELECT DISTINCT NHOM FROM LOPTINCHI WHERE NIENKHOA='" + nienKhoa + "' AND MAKHOA='" + khoa + "'" + " AND MAMH='" + monHoc + "'" + " AND HOCKY='" + hocKy + "'";
-
-
-            layDS_Nhom(strlenh);
-            monHoc = cbxMonHoc.SelectedValue.ToString();
-        }
-
-        private void cbxNhom_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            nhom = cbxNhom.SelectedValue.ToString();
-
-        }
+        
         private void layDS_MH(String cmd)
         {
             DataTable dt = new DataTable();
-            // this.lOPTINCHITableAdapter.Connection.ConnectionString = Program.connstr;
             SqlDataAdapter da = new SqlDataAdapter(cmd, Program.connstr);
             da.Fill(dt);
-
-
             cbxMonHoc.DataSource = dt;
             cbxMonHoc.DisplayMember = "TENMH";
             cbxMonHoc.ValueMember = "MAMH";
             try
             {
-                cbxMonHoc.SelectedIndex = 0;
-                monHoc = cbxMonHoc.SelectedValue.ToString();
+                cbxMonHoc.SelectedIndex = 0; 
             }
-            catch (Exception ex) { }
-
+            catch (Exception ex) {
+                
+            }
 
         }
-        private void layDS_Nhom(String cmd)
+
+        private void cbxHocKy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            // this.lOPTINCHITableAdapter.Connection.ConnectionString = Program.connstr;
-            SqlDataAdapter da = new SqlDataAdapter(cmd, Program.connstr);
-            da.Fill(dt);
-
-
-            cbxNhom.DataSource = dt;
-            cbxNhom.DisplayMember = "NHOM";
-            cbxNhom.ValueMember = "NHOM";
-            try
-            {
-                cbxNhom.SelectedIndex = 0;
-                monHoc = cbxNhom.SelectedValue.ToString();
-            }
-            catch (Exception ex) { }
-
-
+            /*string strlenh2 = "SELECT m.MAMH, m.TENMH FROM MONHOC m JOIN(SELECT DISTINCT MAMH FROM LOPTINCHI"
+                + " WHERE NIENKHOA = '" + cbxNienKhoa.Text + "' AND HOCKY = '" + cbxHocKy.Text + "' AND MAKHOA = '" + khoa + "') ltc ON m.MAMH = ltc.MAMH";
+            MessageBox.Show(strlenh2);
+             layDS_MH(strlenh2);*/
         }
-
     }
 }

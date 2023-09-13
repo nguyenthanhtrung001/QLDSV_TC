@@ -50,8 +50,8 @@ namespace QLDSV_TC
         }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
            
+
 
             // Thêm dòng trống
             AddEmptyRow(dt_DS_HP);
@@ -113,7 +113,6 @@ namespace QLDSV_TC
             try
             {
 
-
                 String strlenh = "EXEC SP_Lay_Thong_Tin_SV_HP '" + masv + "'";
                 SqlDataReader myReader = Program.ExecSqlDataReader(strlenh);
                 if (myReader == null) return;
@@ -125,7 +124,8 @@ namespace QLDSV_TC
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace + "hello");
+                //MessageBox.Show(ex.StackTrace + "hello");
+                MessageBox.Show("Không tìm thấy sinh viên !!!");
             }
 
             try
@@ -153,14 +153,6 @@ namespace QLDSV_TC
             {
                 MessageBox.Show("btnTimKiem_Click" + ex.Message);
             }
-
-
-
-
-
-
-
-
 
 
         }
@@ -206,7 +198,7 @@ namespace QLDSV_TC
                
                
                 dgvHP.Rows[newRowIdx].Cells["nIENKHOADataGridViewTextBoxColumn"].ReadOnly = false;
-                dgvHP.Rows[newRowIdx].Cells[" hOCKYDataGridViewTextBoxColumn"].ReadOnly = false;
+                dgvHP.Rows[newRowIdx].Cells["hOCKYDataGridViewTextBoxColumn"].ReadOnly = false;
                
             }
             catch (Exception)
@@ -269,7 +261,7 @@ namespace QLDSV_TC
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace);
+                //MessageBox.Show(ex.StackTrace);
 
             }
             if (status.Equals("1"))
@@ -716,8 +708,13 @@ namespace QLDSV_TC
             SqlDataReader myReader = Program.ExecSqlDataReader(strlenh);
 
             myReader.Read();
-
-            bool tt = myReader.GetBoolean(0);
+            bool tt = false;
+            try
+            {
+                tt = myReader.GetBoolean(0);
+            }
+            catch (Exception ex) { }
+             
 
 
 

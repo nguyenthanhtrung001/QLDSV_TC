@@ -29,6 +29,7 @@ namespace QLDSV_TC
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.cbbKhoa = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,12 +47,17 @@ namespace QLDSV_TC
             this.txtConfirm = new System.Windows.Forms.TextBox();
             this.txtPassWord = new System.Windows.Forms.TextBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
+            this.qLDSV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
+            this.kHOABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kHOATableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.KHOATableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rdgGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kHOABindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -62,17 +68,20 @@ namespace QLDSV_TC
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1299, 142);
+            this.panelControl1.Size = new System.Drawing.Size(1609, 142);
             this.panelControl1.TabIndex = 0;
             // 
             // cbbKhoa
             // 
+            this.cbbKhoa.DataSource = this.kHOABindingSource;
+            this.cbbKhoa.DisplayMember = "TENKHOA";
             this.cbbKhoa.FormattingEnabled = true;
             this.cbbKhoa.Location = new System.Drawing.Point(678, 54);
             this.cbbKhoa.Margin = new System.Windows.Forms.Padding(4);
             this.cbbKhoa.Name = "cbbKhoa";
             this.cbbKhoa.Size = new System.Drawing.Size(508, 27);
             this.cbbKhoa.TabIndex = 1;
+            this.cbbKhoa.ValueMember = "MAKHOA";
             this.cbbKhoa.SelectedIndexChanged += new System.EventHandler(this.cbbKhoa_SelectedIndexChanged);
             // 
             // label1
@@ -104,7 +113,7 @@ namespace QLDSV_TC
             this.panelControl2.Location = new System.Drawing.Point(0, 142);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1299, 507);
+            this.panelControl2.Size = new System.Drawing.Size(1609, 596);
             this.panelControl2.TabIndex = 1;
             // 
             // btnExit
@@ -233,16 +242,31 @@ namespace QLDSV_TC
             this.txtUserName.Size = new System.Drawing.Size(568, 27);
             this.txtUserName.TabIndex = 0;
             // 
+            // qLDSV_TCDataSet
+            // 
+            this.qLDSV_TCDataSet.DataSetName = "QLDSV_TCDataSet";
+            this.qLDSV_TCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // kHOABindingSource
+            // 
+            this.kHOABindingSource.DataMember = "KHOA";
+            this.kHOABindingSource.DataSource = this.qLDSV_TCDataSet;
+            // 
+            // kHOATableAdapter
+            // 
+            this.kHOATableAdapter.ClearBeforeFill = true;
+            // 
             // FrmTaoTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1299, 649);
+            this.ClientSize = new System.Drawing.Size(1609, 738);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmTaoTaiKhoan";
             this.Text = "FrmTaoTaiKhoan";
+            this.Load += new System.EventHandler(this.FrmTaoTaiKhoan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -251,6 +275,8 @@ namespace QLDSV_TC
             this.panelControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rdgGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kHOABindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -274,5 +300,8 @@ namespace QLDSV_TC
         private DevExpress.XtraEditors.RadioGroup rdgGroup;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnSave;
+        private QLDSV_TCDataSet qLDSV_TCDataSet;
+        private System.Windows.Forms.BindingSource kHOABindingSource;
+        private QLDSV_TCDataSetTableAdapters.KHOATableAdapter kHOATableAdapter;
     }
 }

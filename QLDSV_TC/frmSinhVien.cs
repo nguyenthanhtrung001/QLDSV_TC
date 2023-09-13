@@ -54,12 +54,12 @@ namespace QLDSV_TC
             this.dANGKYTableAdapter.Fill(this.qLDSV_TCDataSet.DANGKY);
 
             var filteredList = Program.bds_dspm.OfType<DataRowView>()
-                .Where(x => x["TENKHOA"].ToString() == "CNTT" || x["TENKHOA"].ToString() == "VT")
+                .Where(x => x["TENCN"].ToString() == "KHOA CÔNG NGHỆ THÔNG TIN" || x["TENCN"].ToString() == "KHOA VIỄN THÔNG")
                 .ToList();
 
             cbbKhoa.DataSource = filteredList;
 
-            cbbKhoa.DisplayMember = "TENKHOA"; cbbKhoa.ValueMember = "TENSERVER";
+            cbbKhoa.DisplayMember = "TENCN"; cbbKhoa.ValueMember = "TENSERVER";
             cbbKhoa.SelectedIndex = Program.mKhoa;
             if (Program.mGroup == "PGV")
             {
@@ -184,6 +184,7 @@ namespace QLDSV_TC
             {
                 try
                 {
+                    qLDSV_TCDataSet.SINHVIEN.PASSWORDColumn.DefaultValue = "123";
                     bdsSinhVien.EndEdit();
                     bdsSinhVien.ResetCurrentItem();
 

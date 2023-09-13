@@ -46,8 +46,11 @@ namespace QLDSV_TC
             this.cbxNhom = new System.Windows.Forms.ComboBox();
             this.btnIN = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
+            this.mONHOCBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mONHOCTableAdapter = new QLDSV_TC.DS1TableAdapters.MONHOCTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.lOPTINCHIBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lOPTINCHIBindingSource
@@ -68,7 +71,10 @@ namespace QLDSV_TC
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.DANGKYTableAdapter = null;
+            this.tableAdapterManager.DSGVTableAdapter = null;
+            this.tableAdapterManager.DSMHTableAdapter = null;
             this.tableAdapterManager.LOPTINCHITableAdapter = this.lOPTINCHITableAdapter;
+            this.tableAdapterManager.MONHOCTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV_TC.DS1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // label1
@@ -141,21 +147,25 @@ namespace QLDSV_TC
             this.cbxNienKhoa.Name = "cbxNienKhoa";
             this.cbxNienKhoa.Size = new System.Drawing.Size(347, 36);
             this.cbxNienKhoa.TabIndex = 1;
-            this.cbxNienKhoa.SelectedIndexChanged += new System.EventHandler(this.cbxNienKhoa_SelectedIndexChanged);
             // 
             // cbxHocKy
             // 
             this.cbxHocKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxHocKy.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbxHocKy.FormattingEnabled = true;
+            this.cbxHocKy.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
             this.cbxHocKy.Location = new System.Drawing.Point(348, 176);
             this.cbxHocKy.Name = "cbxHocKy";
             this.cbxHocKy.Size = new System.Drawing.Size(347, 36);
             this.cbxHocKy.TabIndex = 1;
-            this.cbxHocKy.SelectedIndexChanged += new System.EventHandler(this.cbxHocKy_SelectedIndexChanged);
             // 
             // cbxMonHoc
             // 
+            this.cbxMonHoc.DataSource = this.mONHOCBindingSource;
+            this.cbxMonHoc.DisplayMember = "TENMH";
             this.cbxMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbxMonHoc.FormattingEnabled = true;
@@ -163,18 +173,22 @@ namespace QLDSV_TC
             this.cbxMonHoc.Name = "cbxMonHoc";
             this.cbxMonHoc.Size = new System.Drawing.Size(347, 36);
             this.cbxMonHoc.TabIndex = 1;
-            this.cbxMonHoc.SelectedIndexChanged += new System.EventHandler(this.cbxMonHoc_SelectedIndexChanged);
+            this.cbxMonHoc.ValueMember = "MAMH";
             // 
             // cbxNhom
             // 
             this.cbxNhom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxNhom.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbxNhom.FormattingEnabled = true;
+            this.cbxNhom.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
             this.cbxNhom.Location = new System.Drawing.Point(348, 254);
             this.cbxNhom.Name = "cbxNhom";
             this.cbxNhom.Size = new System.Drawing.Size(347, 36);
             this.cbxNhom.TabIndex = 1;
-            this.cbxNhom.SelectedIndexChanged += new System.EventHandler(this.cbxNhom_SelectedIndexChanged);
             // 
             // btnIN
             // 
@@ -203,6 +217,15 @@ namespace QLDSV_TC
             this.btnThoat.Text = "Thoát";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // mONHOCBindingSource
+            // 
+            this.mONHOCBindingSource.DataMember = "MONHOC";
+            this.mONHOCBindingSource.DataSource = this.dS1;
+            // 
+            // mONHOCTableAdapter
+            // 
+            this.mONHOCTableAdapter.ClearBeforeFill = true;
+            // 
             // Frpt_InDiemTheoMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -225,6 +248,7 @@ namespace QLDSV_TC
             this.Load += new System.EventHandler(this.Frpt_InDiemTheoMon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lOPTINCHIBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +271,7 @@ namespace QLDSV_TC
         private System.Windows.Forms.ComboBox cbxNhom;
         private DevExpress.XtraEditors.SimpleButton btnIN;
         private DevExpress.XtraEditors.SimpleButton btnThoat;
+        private System.Windows.Forms.BindingSource mONHOCBindingSource;
+        private DS1TableAdapters.MONHOCTableAdapter mONHOCTableAdapter;
     }
 }

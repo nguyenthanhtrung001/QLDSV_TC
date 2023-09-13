@@ -42,12 +42,12 @@ namespace QLDSV_TC
             this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.sINHVIENTableAdapter.Fill(this.qLDSV_TCDataSet.SINHVIEN);
             var filteredList = Program.bds_dspm.OfType<DataRowView>()
-                .Where(x => x["TENKHOA"].ToString() == "CNTT" || x["TENKHOA"].ToString() == "VT")
+                .Where(x => x["TENCN"].ToString() == "KHOA CÔNG NGHỆ THÔNG TIN" || x["TENCN"].ToString() == "KHOA VIỄN THÔNG")
                 .ToList();
 
             cbbKhoa.DataSource = filteredList;
 
-            cbbKhoa.DisplayMember = "TENKHOA"; cbbKhoa.ValueMember = "TENSERVER";
+            cbbKhoa.DisplayMember = "TENCN"; cbbKhoa.ValueMember = "TENSERVER";
             cbbKhoa.SelectedIndex = Program.mKhoa;
             if (Program.mGroup == "PGV")
             {

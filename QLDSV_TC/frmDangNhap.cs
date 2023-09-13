@@ -49,6 +49,14 @@ namespace QLDSV_TC
             }
 
         }
+        private Form checkExits(Type ftype)
+        {
+            foreach (Form f in this.MdiChildren)
+                if (f.GetType() == ftype)
+                    return f;
+            return null;
+
+        }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
@@ -112,27 +120,22 @@ namespace QLDSV_TC
             }
             Program.myReader.Close();
             Program.conn.Close();
-            Program.frmChinh.hienThiMenu();
+           // Program.frmChinh.hienThiMenu();
 
             //..................
 
+            Form frm = this.checkExits(typeof(frmMain));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmMain f = new frmMain();
+             //   f.MdiParent = fr;
+                f.Show();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            }
+            this.Visible = false;
 
 
 
@@ -228,7 +231,7 @@ namespace QLDSV_TC
             }
             Program.myReader.Close();
             Program.conn.Close();
-            Program.frmChinh.hienThiMenu();
+           // Program.frmChinh.hienThiMenu();
 
             //..................
 

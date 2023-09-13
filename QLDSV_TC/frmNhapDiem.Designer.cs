@@ -39,6 +39,8 @@ namespace QLDSV_TC
             this.btnCapNhat = new DevExpress.XtraEditors.SimpleButton();
             this.btnBatdau = new DevExpress.XtraEditors.SimpleButton();
             this.cbxMonHoc = new System.Windows.Forms.ComboBox();
+            this.mONHOCBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DS1 = new QLDSV_TC.DS1();
             this.cbxHocKy = new System.Windows.Forms.ComboBox();
             this.cbxNhom = new System.Windows.Forms.ComboBox();
             this.cbxKhoa = new System.Windows.Forms.ComboBox();
@@ -50,7 +52,6 @@ namespace QLDSV_TC
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.bdsLopTinChi = new System.Windows.Forms.BindingSource(this.components);
-            this.DS1 = new QLDSV_TC.DS1();
             this.lOPTINCHITableAdapter = new QLDSV_TC.DS1TableAdapters.LOPTINCHITableAdapter();
             this.tableAdapterManager = new QLDSV_TC.DS1TableAdapters.TableAdapterManager();
             this.bdsDSNhapDiem = new System.Windows.Forms.BindingSource(this.components);
@@ -63,10 +64,12 @@ namespace QLDSV_TC
             this.dIEMGKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dIEMCKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DIEMHETMON = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mONHOCTableAdapter = new QLDSV_TC.DS1TableAdapters.MONHOCTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLopTinChi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLopTinChi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDSNhapDiem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -112,7 +115,7 @@ namespace QLDSV_TC
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 46);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1197, 161);
+            this.panel2.Size = new System.Drawing.Size(1197, 169);
             this.panel2.TabIndex = 1;
             // 
             // btnCapNhat
@@ -141,18 +144,34 @@ namespace QLDSV_TC
             // 
             // cbxMonHoc
             // 
+            this.cbxMonHoc.DataSource = this.mONHOCBindingSource;
+            this.cbxMonHoc.DisplayMember = "TENMH";
             this.cbxMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMonHoc.FormattingEnabled = true;
             this.cbxMonHoc.Location = new System.Drawing.Point(402, 36);
             this.cbxMonHoc.Name = "cbxMonHoc";
             this.cbxMonHoc.Size = new System.Drawing.Size(150, 28);
             this.cbxMonHoc.TabIndex = 1;
-            this.cbxMonHoc.SelectedIndexChanged += new System.EventHandler(this.cbxMonHoc_SelectedIndexChanged);
+            this.cbxMonHoc.ValueMember = "MAMH";
+            // 
+            // mONHOCBindingSource
+            // 
+            this.mONHOCBindingSource.DataMember = "MONHOC";
+            this.mONHOCBindingSource.DataSource = this.DS1;
+            // 
+            // DS1
+            // 
+            this.DS1.DataSetName = "DS1";
+            this.DS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cbxHocKy
             // 
             this.cbxHocKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxHocKy.FormattingEnabled = true;
+            this.cbxHocKy.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
             this.cbxHocKy.Location = new System.Drawing.Point(117, 70);
             this.cbxHocKy.Name = "cbxHocKy";
             this.cbxHocKy.Size = new System.Drawing.Size(150, 28);
@@ -163,11 +182,15 @@ namespace QLDSV_TC
             // 
             this.cbxNhom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxNhom.FormattingEnabled = true;
+            this.cbxNhom.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
             this.cbxNhom.Location = new System.Drawing.Point(402, 73);
             this.cbxNhom.Name = "cbxNhom";
             this.cbxNhom.Size = new System.Drawing.Size(150, 28);
             this.cbxNhom.TabIndex = 1;
-            this.cbxNhom.SelectedIndexChanged += new System.EventHandler(this.cbxNhom_SelectedIndexChanged);
             // 
             // cbxKhoa
             // 
@@ -187,7 +210,6 @@ namespace QLDSV_TC
             this.cbxNienKhoa.Name = "cbxNienKhoa";
             this.cbxNienKhoa.Size = new System.Drawing.Size(150, 28);
             this.cbxNienKhoa.TabIndex = 1;
-            this.cbxNienKhoa.SelectedIndexChanged += new System.EventHandler(this.cbxNienKhoa_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -248,11 +270,6 @@ namespace QLDSV_TC
             this.bdsLopTinChi.DataMember = "LOPTINCHI";
             this.bdsLopTinChi.DataSource = this.DS1;
             // 
-            // DS1
-            // 
-            this.DS1.DataSetName = "DS1";
-            this.DS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // lOPTINCHITableAdapter
             // 
             this.lOPTINCHITableAdapter.ClearBeforeFill = true;
@@ -261,7 +278,10 @@ namespace QLDSV_TC
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.DANGKYTableAdapter = null;
+            this.tableAdapterManager.DSGVTableAdapter = null;
+            this.tableAdapterManager.DSMHTableAdapter = null;
             this.tableAdapterManager.LOPTINCHITableAdapter = this.lOPTINCHITableAdapter;
+            this.tableAdapterManager.MONHOCTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV_TC.DS1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // bdsDSNhapDiem
@@ -277,7 +297,7 @@ namespace QLDSV_TC
             // 
             this.panelControl1.Controls.Add(this.dgvDiem);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 207);
+            this.panelControl1.Location = new System.Drawing.Point(0, 215);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(6);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1197, 361);
@@ -349,6 +369,10 @@ namespace QLDSV_TC
             this.DIEMHETMON.Name = "DIEMHETMON";
             this.DIEMHETMON.ReadOnly = true;
             // 
+            // mONHOCTableAdapter
+            // 
+            this.mONHOCTableAdapter.ClearBeforeFill = true;
+            // 
             // frmNhapDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -364,8 +388,9 @@ namespace QLDSV_TC
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLopTinChi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLopTinChi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDSNhapDiem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -400,11 +425,13 @@ namespace QLDSV_TC
         private DS1TableAdapters.SP_GETDSNHAPDIEMTableAdapter sP_GETDSNHAPDIEMTableAdapter;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private System.Windows.Forms.DataGridView dgvDiem;
+        private DataGridViewTextBoxColumn DIEMHETMON;
         private DataGridViewTextBoxColumn mASVDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn hOTENDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dIEMCCDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dIEMGKDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dIEMCKDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn DIEMHETMON;
+        private BindingSource mONHOCBindingSource;
+        private DS1TableAdapters.MONHOCTableAdapter mONHOCTableAdapter;
     }
 }

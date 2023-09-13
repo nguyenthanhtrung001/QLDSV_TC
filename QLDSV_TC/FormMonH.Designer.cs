@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMonH));
             this.sOTIET_THLabel = new System.Windows.Forms.Label();
             this.sOTIET_LTLabel = new System.Windows.Forms.Label();
             this.tENMHLabel = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.BtnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
             this.BtnHoanTac = new DevExpress.XtraBars.BarButtonItem();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.gcMonHoc = new DevExpress.XtraGrid.GridControl();
             this.BDSMHoc = new System.Windows.Forms.BindingSource(this.components);
             this.qLDSV_TCDataSet2 = new QLDSV_TC.QLDSV_TCDataSet2();
@@ -69,8 +69,8 @@
             this.mONHOCTableAdapter = new QLDSV_TC.QLDSV_TCDataSet2TableAdapters.MONHOCTableAdapter();
             this.BDSLopTChi = new System.Windows.Forms.BindingSource(this.components);
             this.lOPTINCHITableAdapter = new QLDSV_TC.QLDSV_TCDataSet2TableAdapters.LOPTINCHITableAdapter();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BDSMHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet2)).BeginInit();
@@ -81,12 +81,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinSTLT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenMH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BDSLopTChi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // sOTIET_THLabel
             // 
             this.sOTIET_THLabel.AutoSize = true;
-            this.sOTIET_THLabel.Location = new System.Drawing.Point(403, 380);
+            this.sOTIET_THLabel.Location = new System.Drawing.Point(413, 166);
             this.sOTIET_THLabel.Name = "sOTIET_THLabel";
             this.sOTIET_THLabel.Size = new System.Drawing.Size(130, 19);
             this.sOTIET_THLabel.TabIndex = 20;
@@ -95,7 +96,7 @@
             // sOTIET_LTLabel
             // 
             this.sOTIET_LTLabel.AutoSize = true;
-            this.sOTIET_LTLabel.Location = new System.Drawing.Point(407, 319);
+            this.sOTIET_LTLabel.Location = new System.Drawing.Point(417, 123);
             this.sOTIET_LTLabel.Name = "sOTIET_LTLabel";
             this.sOTIET_LTLabel.Size = new System.Drawing.Size(120, 19);
             this.sOTIET_LTLabel.TabIndex = 18;
@@ -104,7 +105,7 @@
             // tENMHLabel
             // 
             this.tENMHLabel.AutoSize = true;
-            this.tENMHLabel.Location = new System.Drawing.Point(432, 248);
+            this.tENMHLabel.Location = new System.Drawing.Point(442, 77);
             this.tENMHLabel.Name = "tENMHLabel";
             this.tENMHLabel.Size = new System.Drawing.Size(101, 19);
             this.tENMHLabel.TabIndex = 16;
@@ -113,7 +114,7 @@
             // mAMHLabel
             // 
             this.mAMHLabel.AutoSize = true;
-            this.mAMHLabel.Location = new System.Drawing.Point(428, 179);
+            this.mAMHLabel.Location = new System.Drawing.Point(438, 34);
             this.mAMHLabel.Name = "mAMHLabel";
             this.mAMHLabel.Size = new System.Drawing.Size(96, 19);
             this.mAMHLabel.TabIndex = 14;
@@ -195,6 +196,8 @@
             // 
             this.btnThem.Caption = "Thêm";
             this.btnThem.Id = 0;
+            this.btnThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.Image")));
+            this.btnThem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.LargeImage")));
             this.btnThem.Name = "btnThem";
             this.btnThem.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
@@ -203,6 +206,8 @@
             // 
             this.btnXoa.Caption = "Xóa";
             this.btnXoa.Id = 1;
+            this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
+            this.btnXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.LargeImage")));
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoa_ItemClick_1);
@@ -211,6 +216,8 @@
             // 
             this.btnSua.Caption = "Sửa";
             this.btnSua.Id = 2;
+            this.btnSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.ImageOptions.Image")));
+            this.btnSua.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSua.ImageOptions.LargeImage")));
             this.btnSua.Name = "btnSua";
             this.btnSua.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSua_ItemClick_1);
@@ -219,6 +226,8 @@
             // 
             this.BtnGhi.Caption = "Ghi";
             this.BtnGhi.Id = 3;
+            this.BtnGhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnGhi.ImageOptions.Image")));
+            this.BtnGhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("BtnGhi.ImageOptions.LargeImage")));
             this.BtnGhi.Name = "BtnGhi";
             this.BtnGhi.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.BtnGhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnGhi_ItemClick_1);
@@ -227,6 +236,8 @@
             // 
             this.BtnHTac.Caption = "Hoàn tác";
             this.BtnHTac.Id = 7;
+            this.BtnHTac.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnHTac.ImageOptions.Image")));
+            this.BtnHTac.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("BtnHTac.ImageOptions.LargeImage")));
             this.BtnHTac.Name = "BtnHTac";
             this.BtnHTac.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.BtnHTac.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnHTac_ItemClick);
@@ -256,7 +267,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1872, 49);
+            this.barDockControlTop.Size = new System.Drawing.Size(1872, 55);
             // 
             // barDockControlBottom
             // 
@@ -270,17 +281,17 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 49);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 55);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 981);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 975);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1872, 49);
+            this.barDockControlRight.Location = new System.Drawing.Point(1872, 55);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 981);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 975);
             // 
             // BtnPhucHoi
             // 
@@ -295,23 +306,15 @@
             this.BtnHoanTac.Id = 6;
             this.BtnHoanTac.Name = "BtnHoanTac";
             // 
-            // panelControl1
-            // 
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 49);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1872, 100);
-            this.panelControl1.TabIndex = 4;
-            // 
             // gcMonHoc
             // 
             this.gcMonHoc.DataSource = this.BDSMHoc;
             this.gcMonHoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcMonHoc.Location = new System.Drawing.Point(0, 149);
+            this.gcMonHoc.Location = new System.Drawing.Point(0, 65);
             this.gcMonHoc.MainView = this.gvMonHoc;
             this.gcMonHoc.MenuManager = this.barManager1;
             this.gcMonHoc.Name = "gcMonHoc";
-            this.gcMonHoc.Size = new System.Drawing.Size(1872, 340);
+            this.gcMonHoc.Size = new System.Drawing.Size(1872, 204);
             this.gcMonHoc.TabIndex = 5;
             this.gcMonHoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMonHoc});
@@ -393,9 +396,9 @@
             this.pnMH.Controls.Add(this.mAMHLabel);
             this.pnMH.Controls.Add(this.txtMaMH);
             this.pnMH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnMH.Location = new System.Drawing.Point(0, 489);
+            this.pnMH.Location = new System.Drawing.Point(0, 269);
             this.pnMH.Name = "pnMH";
-            this.pnMH.Size = new System.Drawing.Size(1872, 541);
+            this.pnMH.Size = new System.Drawing.Size(1872, 761);
             this.pnMH.TabIndex = 18;
             // 
             // spinSTTH
@@ -406,7 +409,7 @@
             0,
             0,
             0});
-            this.spinSTTH.Location = new System.Drawing.Point(540, 376);
+            this.spinSTTH.Location = new System.Drawing.Point(550, 162);
             this.spinSTTH.MenuManager = this.barManager1;
             this.spinSTTH.Name = "spinSTTH";
             this.spinSTTH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -422,7 +425,7 @@
             0,
             0,
             0});
-            this.spinSTLT.Location = new System.Drawing.Point(540, 315);
+            this.spinSTLT.Location = new System.Drawing.Point(550, 119);
             this.spinSTLT.MenuManager = this.barManager1;
             this.spinSTLT.Name = "spinSTLT";
             this.spinSTLT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -433,7 +436,7 @@
             // txtTenMH
             // 
             this.txtTenMH.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BDSMHoc, "TENMH", true));
-            this.txtTenMH.Location = new System.Drawing.Point(540, 245);
+            this.txtTenMH.Location = new System.Drawing.Point(550, 74);
             this.txtTenMH.MenuManager = this.barManager1;
             this.txtTenMH.Name = "txtTenMH";
             this.txtTenMH.Size = new System.Drawing.Size(386, 28);
@@ -442,7 +445,7 @@
             // txtMaMH
             // 
             this.txtMaMH.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BDSMHoc, "MAMH", true));
-            this.txtMaMH.Location = new System.Drawing.Point(540, 176);
+            this.txtMaMH.Location = new System.Drawing.Point(550, 31);
             this.txtMaMH.Name = "txtMaMH";
             this.txtMaMH.Size = new System.Drawing.Size(386, 27);
             this.txtMaMH.TabIndex = 15;
@@ -460,6 +463,14 @@
             // 
             this.lOPTINCHITableAdapter.ClearBeforeFill = true;
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 55);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1872, 10);
+            this.panelControl1.TabIndex = 4;
+            // 
             // FormMonH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -476,7 +487,6 @@
             this.Text = "FormMonH";
             this.Load += new System.EventHandler(this.FormMonH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMonHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BDSMHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet2)).EndInit();
@@ -488,6 +498,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinSTLT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenMH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BDSLopTChi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -513,7 +524,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraGrid.GridControl gcMonHoc;
         private DevExpress.XtraGrid.Views.Grid.GridView gvMonHoc;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
 
         private DevExpress.XtraBars.BarButtonItem BtnHoanTac;
         private QLDSV_TCDataSet2 qLDSV_TCDataSet2;
@@ -536,5 +546,6 @@
         private System.Windows.Forms.Label sOTIET_LTLabel;
         private System.Windows.Forms.Label tENMHLabel;
         private System.Windows.Forms.Label mAMHLabel;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
     }
 }

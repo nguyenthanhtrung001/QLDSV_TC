@@ -96,9 +96,11 @@ namespace QLDSV_TC
             }
             Xrpt_SP_RP_DSDHP rpt = new Xrpt_SP_RP_DSDHP(lop, nienkhoa, hk);
 
+            String k = cbxLop.SelectedValue.ToString().Trim();
             string khoatmp = "";
-            if (cbxLop.SelectedValue.ToString() == "CNTT") khoatmp = "Công Nghệ Thông Tin";
-            else khoatmp = "Viễn Thông";
+            if (k=="VT") khoatmp = "Viễn Thông";
+            else khoatmp = "Công Nghệ Thông Tin";
+           
             rpt.lblKhoa.Text = khoatmp;
             rpt.lblLop.Text = lop;
 
@@ -117,6 +119,7 @@ namespace QLDSV_TC
             catch(Exception ex) { }
            
             rpt.lblTienChu.Text = MoneyConverter.ConvertMoneyToString(sum);
+            
 
 
             ReportPrintTool print = new ReportPrintTool(rpt);

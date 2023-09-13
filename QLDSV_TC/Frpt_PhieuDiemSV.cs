@@ -39,8 +39,11 @@ namespace QLDSV_TC
             dS1.EnforceConstraints = false;
             this.lOPTINCHITableAdapter.Connection.ConnectionString = Program.connstr;
 
-            //  this.lOPTINCHITableAdapter.Fill(this.dS1.LOPTINCHI);
-            layDS_CN("SELECT * FROM Get_Subscribes");
+            Program.bds_dspm.Filter = "TENCN LIKE 'KHOA%'";
+            cbxKhoa.DataSource = Program.bds_dspm;
+            cbxKhoa.DisplayMember = "TENCN";
+            cbxKhoa.ValueMember = "TENSERVER";
+            cbxKhoa.SelectedValue = Program.servername;
 
             if (Program.mGroup == "PGV")
             {
@@ -67,24 +70,7 @@ namespace QLDSV_TC
 
         }
 
-        private void layDS_CN(String cmd)
-        {
-            DataTable dt = new DataTable();
-
-            SqlDataAdapter da = new SqlDataAdapter(cmd, Program.connstr_publisher);
-            da.Fill(dt);
-            BindingSource bds = new BindingSource();
-            bds.DataSource = dt;
-
-            cbxKhoa.DataSource = bds;
-            bds.Filter = "TENCN LIKE 'KHOA%'";
-
-            cbxKhoa.DisplayMember = "TENCN";
-            cbxKhoa.ValueMember = "TENSERVER";
-
-
-
-        }
+       
 
         private void cbxKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {

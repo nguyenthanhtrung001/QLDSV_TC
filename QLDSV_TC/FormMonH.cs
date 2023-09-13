@@ -85,6 +85,24 @@ namespace QLDSV_TC
                 MessageBox.Show("Vui Lòng Chọn Phái!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+            if (spinSTLT.Value < 0)
+            {
+                MessageBox.Show("Số Tiết Lý Thuyết >= 0!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                spinSTLT.Focus();
+                return false;
+            }
+            if (spinSTTH.Value < 0)
+            {
+                MessageBox.Show("Số tiết thưc hành >= 0!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                spinSTTH.Focus();
+                return false;
+            }
+            if ((spinSTLT.Value + spinSTTH.Value) <= 0 || (spinSTLT.Value + spinSTTH.Value) % 15 != 0)
+            {
+                MessageBox.Show("Số Tiết LT + Số Tiết TH phải lơn hơn 0 và là bội số của 15 (1 tín chỉ)", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                spinSTLT.Focus();
+                return false;
+            }
 
             if (flagMode == "ADDMONHOC")
             {

@@ -20,9 +20,12 @@ namespace QLDSV_TC
         public static SqlDataReader myReader;
 
         public static String servername = "";
-        public static String servername1 = "LAPTOP-BB4P1S1G\\MSSQLSERVER01";
+       /* public static String servername1 = "LAPTOP-BB4P1S1G\\MSSQLSERVER01";
         public static String servername2 = "LAPTOP-BB4P1S1G\\MSSQLSERVER02";
-        public static String servername3 = "LAPTOP-BB4P1S1G\\MSSQLSERVER03";
+        public static String servername3 = "LAPTOP-BB4P1S1G\\MSSQLSERVER03";*/
+        public static String servername1 = "";
+        public static String servername2 = "";
+        public static String servername3 = "";
 
         public static String username;
         public static String password = "123";
@@ -41,14 +44,16 @@ namespace QLDSV_TC
 
         public static int mChiNhanh = 0;
         public static BindingSource bds_dspm = new BindingSource();// giữ bds khi đăng nhập.
-        public static frmMain frmChinh;
+        public static frmDangNhap frmChinh;
 
+        
         //trieu
         public static int hocPhi = 550000;
         public static int mKhoa = 0;
         // han
         public static String Control = "";
         public static String mMAKHOA = "";
+        public static string[] NhomQuyen = new string[4] { "PGV", "Khoa", "PKT", "SV" };
 
 
 
@@ -178,7 +183,7 @@ namespace QLDSV_TC
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            frmChinh = new frmMain();
+            frmChinh = new frmDangNhap();
 
             Application.Run(frmChinh);
 
